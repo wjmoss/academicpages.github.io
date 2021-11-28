@@ -7,19 +7,24 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Home"  #"Your Name / Site Title"
-title_separator          : "-"
-name                     : &name "Jun Wu"
-description              : &description "personal description"
-url                      : https:/wjmoss.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+title                    : "Home"
+title_separator          : "|"
+name                     : &name "Kristian López Vargas"
+
+description              : &description "KLO's academic page"
+
+url                      : https://kmlv.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "wjmoss/wjmoss.github.io"
-teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+
+repository               : "kmlv/kmlv.github.io"
+
+teaser                   : 3953273590_704e3899d5_m.jpg # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
-future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false #change to true to add link to talkmap on talks page
+
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
@@ -46,18 +51,19 @@ staticman:
       type               : "date"
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
+
 atom_feed:
   path                   : # blank (default) uses feed.xml
 
 # SEO Related
-google_site_verification :
+google_site_verification :  https://kmlv.github.io/google3a5afedca7169340.html
 bing_site_verification   :
 alexa_site_verification  :
 yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &klo_pez
 facebook:
   username               :
   app_id                 :
@@ -65,9 +71,10 @@ facebook:
 og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
+
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
+  type                   : Person # Person or Organization (defaults to Person)
+  name                   : Kristian López Vargas # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
 
@@ -80,15 +87,14 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Sidebar Name"
-  avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  name             : "Kristian López Vargas"
+  avatar           : "Avatar.jpg"
+  bio              : "Assistant Professor of economics at the University of California, Santa Cruz"
+  location         :
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : "http://yourfullgooglescholarurl.com"
-  email            :
-  researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
+  googlescholar    : "https://scholar-google-com.oca.ucsc.edu/citations?user=-eejuuUAAAAJ&hl=en"
+  email            : klopezva@ucsc.edu
+  github           : "kmlv"
   uri              :
   bitbucket        :
   codepen          :
@@ -96,24 +102,22 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "academicpages"
   google_plus      :
   keybase          :
   instagram        :
-  impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  linkedin         : "kristian-lopez-vargas-b9a38028/"
+  orcid            : "https://orcid.org/0000-0002-5728-1697"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "replacethistwitterhandle"
+  twitter          : "@klo_pez"
   vine             :
   weibo            :
   xing             :
-  youtube          :
+  youtube          : "UC1dxicxwuH4xgk3sj8AHQmg"
   wikipedia        :
 
 
@@ -122,6 +126,7 @@ include:
   - .htaccess
   - _pages
   - files
+
 exclude:
   - "*.sublime-project"
   - "*.sublime-workspace"
@@ -129,27 +134,29 @@ exclude:
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
-  - CHANGELOG
+  - assets/js/plugins
+  - assets/js/_main.js
+  - assets/js/vendor
   - Capfile
+  - CHANGELOG
+  - config
   - Gemfile
   - Gruntfile.js
-  - LICENSE
-  - README
-  - Rakefile
-  - assets/js/_main.js
-  - assets/js/plugins
-  - assets/js/vendor
-  - config
   - gulpfile.js
+  - LICENSE
   - log
   - node_modules
   - package.json
+  - Rakefile
+  - README
   - tmp
-  - vendor
+
 keep_files:
   - .git
   - .svn
+
 encoding: "utf-8"
+
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
@@ -178,7 +185,7 @@ collections:
   teaching:
     output: true
     permalink: /:collection/:path/
-  publications:
+  research:
     output: true
     permalink: /:collection/:path/
   portfolio:
@@ -218,15 +225,16 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _publications
+  # _research
   - scope:
       path: ""
-      type: publications
+      type: research
     values:
       layout: single
       author_profile: true
       share: true
       comments: true
+
   # _portfolio
   - scope:
       path: ""
@@ -236,6 +244,7 @@ defaults:
       author_profile: true
       share: true
       comment: true
+
   # _talks
   - scope:
       path: ""
@@ -259,7 +268,7 @@ timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database
 
 
 # Plugins
-plugins:
+gems:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
@@ -310,4 +319,8 @@ compress_html:
   ignore:
     envs: development
 
-theme: jekyll-theme-cayman
+
+
+# git commit -am "add change to ________" && git push
+
+# git add _config.yml && git commit -m "add change to yml" && git push
