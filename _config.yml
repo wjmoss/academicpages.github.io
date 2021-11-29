@@ -11,7 +11,7 @@ title                    : "Home"
 title_separator          : "|"
 name                     : &name "Jun Wu"
 
-description              : &description "KLO's academic page"
+description              : &description "wj's academic page"
 
 url                      : https://wjmoss.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 
@@ -74,7 +74,7 @@ og_image                 :  # Open Graph/Twitter default site image
 
 social:
   type                   : Person # Person or Organization (defaults to Person)
-  name                   : Kristian López Vargas # If the user or organization name differs from the site's name
+  name                   : Jun Wu # If the user or organization name differs from the site's name
   links: # An array of links to social media profiles
 
 
@@ -89,7 +89,7 @@ analytics:
 author:
   name             : "Jun Wu"
   avatar           : #"Avatar.jpg"
-  bio              : "Doctoral Candidates in Chair of Mathematical Statistics, Technical University of Munich"
+  bio              : #"Doctoral Candidates in Chair of Mathematical Statistics, Technical University of Munich"
   location         :
   employer         :
   googlescholar    : #"https://scholar-google-com.oca.ucsc.edu/citations?user=-eejuuUAAAAJ&hl=en"
