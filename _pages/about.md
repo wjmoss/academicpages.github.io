@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "Jun WU"
+title: "Jun Wu"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
