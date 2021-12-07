@@ -9,7 +9,7 @@ excerpt: ''
 
 date: 2020-08-19
 
-venue: 'Accepted at the 36th Conference on Uncertainty in Artificial Intelligence (UAI) 2020'
+venue: 'Accepted at the 36th Conference on Uncertainty in Artificial Intelligence (UAI)'
 
 paperurl: 'https://arxiv.org/abs/2006.05978'
 
