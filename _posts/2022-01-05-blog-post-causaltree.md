@@ -8,7 +8,7 @@ tags:
   - category2
 ---
 
-This blog post is some reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
+This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
 
 1.Introduction
 ======
@@ -108,5 +108,5 @@ To sum it up, the honest inference works as stated below (no cross validation ve
 The R package causalTree can be found on \url{https://github.com/susanathey/causalTree}.
 
 
-%Aren't headings cool?
-%------
+<!Aren't headings cool?>
+<!------>
