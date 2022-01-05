@@ -35,19 +35,23 @@ $$
 The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by
 
 $$
-\tau(x) \equiv \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right].
+\tau(x) := \mathbb{E}[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x].
 $$
 
 The original method requires that the observations are exchangeable and there is no interference, i.e.  complete randomization. In this case the treatment probability for all values of $x$ is a constant. Usually the assumption is violated in observational study and the conditional treatment probability ("propsensity score") $e(x):=P(W_i=1|X_i=x)$ is not a constant function.
 
 Actually, the complete randomization assumption
+
 $$
 W_{i} \perp\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
 $$
+
 can be relaxed to unconfoundness assumption
+
 $$
 W_{i} \perp\left(Y_{i}(0), Y_{i}(1)\right) \mid X_{i}.
 $$
+
 The paper describe the causal tree method under the stronger complete randomization assumption, and the weaker unconfoundness assumption can be handled by inverse probability weighting. 
 
 
