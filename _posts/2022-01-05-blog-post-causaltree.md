@@ -142,7 +142,8 @@ $$
 
 is also the example named "simulation1" in the R package "causalTree", which can be found on <https://github.com/susanathey/causalTree>. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
 
-``` {r, size="normal"}
+\normalsize
+``` r
 library(causalTree)
 tree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1, treatment = simulation.1$treatment,
                    split.Rule = "CT", cv.option = "CT", split.Honest = T, cv.Honest = T, split.Bucket = F, 
