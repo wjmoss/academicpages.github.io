@@ -9,10 +9,12 @@ redirect_from:
 ---
 
 
-Welcome to my homepage. (tbd :)
+Welcome to my homepage.
+
+I am currently a Phd Candidate in the Mathematical Statistics group of Technical University of Munich, led by [Mathias Drton](https://www.groups.ma.tum.de/en/statistics/people/mathias-drton/). My [research](https://wjmoss.github.io/research/) focus on directed graphical models, using algebraic tools to study the statistical properties of models. There are both identifiability problems and parameter estimation algorithms. I am also interested in causal structure learning and treatment effect estimation.
 
 
-<!-- ;![](/images/gradhatpng.png) Ph.D., University of Texas at Austin (expected 2021) -->
+![](/images/gradhatpng.png) Ph.D., Technische Universität München (expected 202?)
 <!-- ;<br>![](/images/gradhatpng.png) Dual M.A., Georgetown University and Universidad Nacional de San Martín, Argentina (2015) -->
 <br>![](/images/gradhatpng.png) M.Sc., Eidgenössische Technische Hochschule Zürich (2019)
 <br>![](/images/gradhatpng.png) B.Sc., Zhejiang University (2016) 
