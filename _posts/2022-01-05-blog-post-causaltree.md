@@ -108,5 +108,5 @@ To sum it up, the honest inference works as stated below (no cross validation ve
 The R package causalTree can be found on \url{https://github.com/susanathey/causalTree}.
 
 
-<!Aren't headings cool?>
+<!-- Aren't headings cool?
 <!------>
