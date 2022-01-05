@@ -8,6 +8,11 @@ tags:
   - CART
 ---
 
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\def\ci{\perp\kern-1.3ex\perp}
+\def\nci{\not\kern-0.3ex\ci}
+
 This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
 
 1.Introduction
@@ -43,13 +48,13 @@ The original method requires that the observations are exchangeable and there is
 Actually, the complete randomization assumption
 
 $$
-W_{i} \perp\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
+W_{i} \ci\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
 $$
 
 can be relaxed to unconfoundness assumption
 
 $$
-W_{i} \perp\left(Y_{i}(0), Y_{i}(1)\right) \mid X_{i}.
+W_{i} \ci\left(Y_{i}(0), Y_{i}(1)\right) \mid X_{i}.
 $$
 
 The paper describe the causal tree method under the stronger complete randomization assumption, and the weaker unconfoundness assumption can be handled by inverse probability weighting. 
