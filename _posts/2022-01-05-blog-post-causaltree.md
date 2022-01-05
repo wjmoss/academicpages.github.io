@@ -7,9 +7,6 @@ tags:
   - treatment effect
   - CART
 
-header-includes:
-  - \newcommand{\ci}{\perp\kern-1.3ex\perp}
-  - \newcommand{\nci}{\not\kern-0.3ex\ci}
 ---
 
 
@@ -53,6 +50,7 @@ The original method requires that the observations are exchangeable and there is
 Actually, the complete randomization assumption
 
 $$
+\newcommand{\ci}{\perp\kern-1.3ex\perp}
 W_{i} \ci\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
 $$
 
