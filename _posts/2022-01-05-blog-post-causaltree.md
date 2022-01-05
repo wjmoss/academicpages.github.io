@@ -35,7 +35,7 @@ $$
 The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by
 
 $$
-\tau(x) := \mathbb{E}[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x].
+\tau(x) := \mathbb{E}\[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\].
 $$
 
 The original method requires that the observations are exchangeable and there is no interference, i.e.  complete randomization. In this case the treatment probability for all values of $x$ is a constant. Usually the assumption is violated in observational study and the conditional treatment probability ("propsensity score") $e(x):=P(W_i=1|X_i=x)$ is not a constant function.
