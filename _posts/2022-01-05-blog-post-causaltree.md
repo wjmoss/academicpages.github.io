@@ -8,6 +8,11 @@ tags:
   - CART
 ---
 
+\newcommand{\ci}{\perp\kern-1.3ex\perp}
+\newcommand{\nci}{\not\kern-0.3ex\ci}
+
+## Markdown
+
 This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
 
 1.Introduction
