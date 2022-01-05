@@ -31,7 +31,9 @@ Y_{i}(0) & \text { if } W_{i}=0, \\
 Y_{i}(1) & \text { if } W_{i}=1.
 \end{cases}
 $$
+
 The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by
+
 $$
 \tau(x) \equiv \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right].
 $$
