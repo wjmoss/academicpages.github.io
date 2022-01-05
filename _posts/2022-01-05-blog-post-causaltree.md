@@ -6,10 +6,13 @@ tags:
   - causal inference
   - treatment effect
   - CART
+
+header-includes:
+  - \newcommand{\ci}{\perp\kern-1.3ex\perp}
+  - \newcommand{\nci}{\not\kern-0.3ex\ci}
 ---
 
-\newcommand{\ci}{\perp\kern-1.3ex\perp}
-\newcommand{\nci}{\not\kern-0.3ex\ci}
+
 
 ## Markdown
 
