@@ -19,7 +19,7 @@ baseurl                  : "" # the subpath of your site, e.g. "/blog"
 
 repository               : "wjmoss/wjmoss.github.io"
 
-teaser                   : "/images/pic0.jpg" # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
+teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -88,7 +88,7 @@ analytics:
 # Site Author
 author:
   name             : "Jun Wu"
-  avatar           : #"Avatar.jpg"
+  avatar           : "Avatar.jpg"
   bio              : #"Doctoral Candidates in Chair of Mathematical Statistics, Technical University of Munich"
   location         :
   employer         :
