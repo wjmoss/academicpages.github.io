@@ -6,12 +6,13 @@ tags:
   - causal inference
   - treatment effect
   - CART
----
 
-\DeclareMathOperator{\tr}{tr}
-\DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\ci}{{\perp\kern-1.3ex\perp}}
-\DeclareMathOperator{\nci}{\not\kern-0.3ex\ci}
+\DeclareMathOperator*{\tr}{tr}
+\DeclareMathOperator*{\diag}{diag}
+\DeclareMathOperator*{\ci}{{\perp\kern-1.3ex\perp}}
+\DeclareMathOperator*{\nci}{\not\kern-0.3ex\ci}
+
+---
 
 This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
 
@@ -123,12 +124,25 @@ $$
 Y_{i}(w)=\eta\left(X_{i}\right)+\frac{1}{2} \cdot(2 w-1) \cdot \kappa\left(X_{i}\right)+\epsilon_{i},\quad \epsilon_{i} \sim \mathcal{N}(0, .01),\ X_{i} \sim \mathcal{N}(0,1),\ X_i\ci \epsilon_i.
 $$
 The 2nd setup
+
 $$
 K=10 ; \eta(x)=\frac{1}{2} \sum_{k=1}^{2} x_{k}+\sum_{k=3}^{6} x_{k} ; \kappa(x)=\sum_{k=1}^{2} 1\left\{x_{k}>0\right\} \cdot x_{k}
 $$
+
 is also the example named "simulation1" in the R package "causalTree", which can be found on <https://github.com/susanathey/causalTree>. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
 
-![causal tree](/image/ct.png "A causal tree of \"simulation1\"")
+```
+library(causalTree)
+tree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1, treatment = simulation.1$treatment,
+                   split.Rule = "CT", cv.option = "CT", split.Honest = T, cv.Honest = T, split.Bucket = F, 
+                   xval = 5, cp = 0, minsize = 20, propensity = 0.5)
+                  
+opcp <- tree$cptable[,1][which.min(tree$cptable[,4])]
+opfit <- prune(tree, opcp)
+rpart.plot(opfit)
+```
+
+![A causal tree](/image/ct.png "The causal tree in \"simulation1\"")
 
 In the "causalTree" function, "cp" is the complexity parameter; "minsize" is the minimal number of data in a leaf node, which helps controlling the variance; "propensity" equals to constant 0.5, meaning that all individuals has probability $0.5$ to get treatment. The documentation says that "Unit-specific propensity scores are not supported; however, the user may use inverse propensity scores as case weights if desired". But I wonder how to do this in practice?
 
