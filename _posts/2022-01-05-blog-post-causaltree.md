@@ -6,9 +6,7 @@ tags:
   - causal inference
   - treatment effect
   - CART
-<script type="text/javascript"
-    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+
 ---
 
 
@@ -50,13 +48,13 @@ Actually, the complete randomization assumption
 
 $$
 \newcommand{\ci}{\perp\kern-1.3ex\perp}
-W_{i} \ci\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
+W_{i} {\perp\kern-1.3ex\perp}\left(Y_{i}(0), Y_{i}(1), X_{i}\right),
 $$
 
 can be relaxed to unconfoundness assumption
 
 $$
-W_{i} \ci\left(Y_{i}(0), Y_{i}(1)\right) \mid X_{i}.
+W_{i} {\perp\kern-1.3ex\perp}\left(Y_{i}(0), Y_{i}(1)\right) \mid X_{i}.
 $$
 
 The paper describe the causal tree method under the stronger complete randomization assumption, and the weaker unconfoundness assumption can be handled by inverse probability weighting. 
