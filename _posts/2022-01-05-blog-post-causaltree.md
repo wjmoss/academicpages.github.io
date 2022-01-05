@@ -12,9 +12,6 @@ tags:
 ---
 
 
-
-## Markdown
-
 This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
 
 1.Introduction
