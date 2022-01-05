@@ -3,9 +3,9 @@ title: 'Causal Tree'
 date: 2022-01-05
 permalink: /posts/2022/01/causaltree/
 tags:
-  - cool posts
-  - category1
-  - category2
+  - causal inference
+  - treatment effect
+  - CART
 ---
 
 This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
@@ -38,7 +38,7 @@ $$
 \tau(x) := \mathbb{E}[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x].
 $$
 
-The original method requires that the observations are exchangeable and there is no interference, i.e.  complete randomization. In this case the treatment probability for all values of $x$ is a constant. Usually the assumption is violated in observational study and the conditional treatment probability ("propsensity score") $e(x):=P(W_i=1\midX_i=x)$ is not a constant function.
+The original method requires that the observations are exchangeable and there is no interference, i.e.  complete randomization. In this case the treatment probability for all values of $x$ is a constant. Usually the assumption is violated in observational study and the conditional treatment probability ("propsensity score") $e(x):=P(W_i=1\mid X_i=x)$ is not a constant function.
 
 Actually, the complete randomization assumption
 
