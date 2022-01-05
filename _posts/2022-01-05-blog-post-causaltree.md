@@ -69,7 +69,9 @@ A tree is a partition of the feature space $\mathbb{X}$.
 $$
 \Pi=\left\{\ell_{1}, \ldots, \ell_{\#(\Pi)}\right\}, \text { with } \quad \cup_{j=1}^{\#(\Pi)} \ell_{j}=\mathbb{X} .
 $$
+
 Every value $x\in\mathbb{X}$ lies in one element of the partition, denoted by $\ell(x;\Pi)$. The tree estimator approximate the CATE $\tau(x)=\mu(1,x)-\mu(0,x)$ with a piecewise function:
+
 $$
 \tau(x ; \Pi) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i} \in \ell(x ; \Pi)\right]=\mu(1, x ; \Pi)-\mu(0, x ; \Pi),
 $$
@@ -86,7 +88,7 @@ $$
 \end{gathered}
 $$
 
-For a regression tree, every partition element (leaf) has a score, and the total score function is the sum of all scores on leaves subtracting the complexity penalty $\alpha|\Pi|$.  The objective is to find the tree with the highest score by recursive partitioning. Here, the causal tree method use the modified minus mean square error (-MSE) as the score. The MSE evaluated on test dataset is
+For a regression tree, every partition element (leaf) has a score, and the total score function is the sum of all scores on leaves subtracting the complexity penalty $\alpha\vert\Pi\vert$.  The objective is to find the tree with the highest score by recursive partitioning. Here, the causal tree method use the modified minus mean square error (-MSE) as the score. The MSE evaluated on test dataset is
 
 $$
 \operatorname{MSE}_{\tau}\left(\mathcal{S}^{\text {te }}, \mathcal{S}^{\text {est }}, \Pi\right)= \frac{1}{\#\left(\mathcal{S}^{\text {te }}\right)} \sum_{i \in \mathcal{S}^{\text {te }}}\left(\tau_{i}-\hat{\tau}\left(X_{i} ; \mathcal{S}^{\text {est }}, \Pi\right)\right)^{2}.
@@ -126,7 +128,7 @@ TBD,...emm, I have not fully understood how the cross validation is incorporated
 
 5.Example
 ======
-To sum it up, the honest inference works as below (without cross validation version). The whole dataset is separated into training, estimating and testing dataset. For each fixed value of $\alpha$, we have an empirical version $\hat{Q}^H(\Pi)=-\widehat{\operatorname{EMSE}}_{\tau}\left(\mathcal{S}^{\mathrm{tr}}, N^{\mathrm{est}}, \Pi\right)-\alpha|\Pi|$ evaluated on the training and estimating dataset, which controls the growth of causal tree. After the tree is constructed, the testing MSE is computed based on testing dataset. The choice of penalty hyperparameter $\alpha$ and the best tree corresponds to the smallest testing MSE.
+To sum it up, the honest inference works as below (without cross validation version). The whole dataset is separated into training, estimating and testing dataset. For each fixed value of $\alpha$, we have an empirical version $\hat{Q}^H(\Pi)=-\widehat{\operatorname{EMSE}}_{\tau}\left(\mathcal{S}^{\mathrm{tr}}, N^{\mathrm{est}}, \Pi\right)-\alpha\vert\Pi\vert$ evaluated on the training and estimating dataset, which controls the growth of causal tree. After the tree is constructed, the testing MSE is computed based on testing dataset. The choice of penalty hyperparameter $\alpha$ and the best tree corresponds to the smallest testing MSE.
 
 The paper consider a family of models in the simulation study. In all designs the marginal treatment probability is $P =0.5$, $K$ denotes the number of features. The mean effect is $\eta(x)$ and the treatment effect is $\kappa(x)$. For $w=0,1$, the potential outcomes are
 
