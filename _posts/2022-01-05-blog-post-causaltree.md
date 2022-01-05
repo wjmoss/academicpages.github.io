@@ -66,6 +66,7 @@ The paper describe the causal tree method under the stronger complete randomizat
 3.Honest inference
 ======
 A tree is a partition of the feature space $\mathbb{X}$.
+
 $$
 \Pi=\left\{\ell_{1}, \ldots, \ell_{\#(\Pi)}\right\}, \text { with } \quad \cup_{j=1}^{\#(\Pi)} \ell_{j}=\mathbb{X} .
 $$
@@ -73,10 +74,12 @@ Every value $x\in\mathbb{X}$ lies in one element of the partition, denoted by $\
 $$
 \tau(x ; \Pi) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i} \in \ell(x ; \Pi)\right]=\mu(1, x ; \Pi)-\mu(0, x ; \Pi),
 $$
+
 which is a constant on each element of the partition. 
 We usually have disjoint training dataset and testing dataset for machine learning tasks to relieve overfitting. The honest approach further split the training dataset into 2 parts, one part $\mathcal{S}^{\text {tr}}$ for estimating the tree and the other part $\mathcal{S}^{\text {est}}$ for estimating the conditional outcome or treatment effect. This procedure decouple the information from data in tree construction and target estimation.
 
 Given a dataset $\mathcal{S}$, the outcome and CATE approximation at $x$ with the fixed partition $\Pi$ can be estimated by
+
 $$
 \begin{gathered}
 \hat{\mu}(w, x ; \mathcal{S}, \Pi):= \frac{1}{\#\left(\left\{i \in \mathcal{S}_{w}: X_{i} \in \ell(x ; \Pi)\right\}\right)} \sum_{i \in \mathcal{S}_{w}: X_{i} \in \ell(x ; \Pi)} Y_{i}^{\mathrm{obs}}, \\
@@ -85,28 +88,35 @@ $$
 $$
 
 For a regression tree, every partition element (leaf) has a score, and the total score function is the sum of all scores on leaves subtracting the complexity penalty $\alpha|\Pi|$.  The objective is to find the tree with the highest score by recursive partitioning. Here, the causal tree method use the modified minus mean square error (-MSE) as the score. The MSE evaluated on test dataset is
+
 $$
 \operatorname{MSE}_{\tau}\left(\mathcal{S}^{\text {te }}, \mathcal{S}^{\text {est }}, \Pi\right)= \frac{1}{\#\left(\mathcal{S}^{\text {te }}\right)} \sum_{i \in \mathcal{S}^{\text {te }}}\left(\tau_{i}-\hat{\tau}\left(X_{i} ; \mathcal{S}^{\text {est }}, \Pi\right)\right)^{2}.
 $$
+
 However, the ground truth $\tau_i$ is unknown. The modification can handle this issue by subtracting $\tau_i^2$ in MSE, i.e.,
+
 $$
 \operatorname{MSE}_{\tau}\left(\mathcal{S}^{\text {te }}, \mathcal{S}^{\text {est }}, \Pi\right):= \frac{1}{\#\left(\mathcal{S}^{\text {te }}\right)} \sum_{i \in \mathcal{S}^{\text {te }}}\left\{\left(\tau_{i}-\hat{\tau}\left(X_{i} ; \mathcal{S}^{\text {est }}, \Pi\right)\right)^{2}-\tau_{i}^{2}\right\}.
 $$
+
 This "subtracting unknown true value" trick was also used in the error analysis of nonparametric density estimation.
 
 Then the final score is constructed by the expected MSE and penalty, which gives the honest criterion tobe maximized.
+
 $$
 Q^H(\Pi):=-\operatorname{EMSE}_{\tau}(\Pi) - \alpha|\Pi|= \mathbb{E}_{\mathcal{S}^{\mathrm{te}}, \mathcal{S}^{\mathrm{est}}}\left[-\operatorname{MSE}_{\tau}\left(\mathcal{S}^{\mathrm{te}}, \mathcal{S}^{\mathrm{est}}, \Pi\right)\right]- \alpha|\Pi|
 $$
 
 
 The authors show that this modified minus EMSE has an unbiased estimator
+
 $$
 \begin{gathered}
 -\widehat{\operatorname{EMSE}}_{\tau}\left(\mathcal{S}^{\mathrm{tr}}, N^{\mathrm{est}}, \Pi\right):= \frac{1}{N^{\mathrm{tr}}} \sum_{i \in \mathcal{S}^{\mathrm{tr}}} \left(\hat{\tau}\left(X_{i} ; \mathcal{S}^{\mathrm{tr}}, \Pi\right)\right)^2 \\
 -\left(\frac{1}{N^{\mathrm{tr}}}+\frac{1}{N^{\mathrm{est}}}\right) \cdot \sum_{\ell \in \Pi}\left(\frac{S_{\mathcal{S}_{\mathrm{treat}}^{\mathrm{tr}}}^{2}(\ell)}{p}+\frac{S_{\mathcal{S}_{\mathrm{control}}^{\mathrm{tr}}}^{2}(l)}{1-p}\right) .
 \end{gathered}
 $$
+
 where $\hat{\tau}$ is obtained from $\mathcal{S}^{\mathrm{est}}$.
 
 
@@ -120,9 +130,11 @@ TBD,...emm, I have not fully understood how the cross validation is incorporated
 To sum it up, the honest inference works as below (without cross validation version). The whole dataset is separated into training, estimating and testing dataset. For each fixed value of $\alpha$, we have an empirical version $\hat{Q}^H(\Pi)=-\widehat{\operatorname{EMSE}}_{\tau}\left(\mathcal{S}^{\mathrm{tr}}, N^{\mathrm{est}}, \Pi\right)-\alpha|\Pi|$ evaluated on the training and estimating dataset, which controls the growth of causal tree. After the tree is constructed, the testing MSE is computed based on testing dataset. The choice of penalty hyperparameter $\alpha$ and the best tree corresponds to the smallest testing MSE.
 
 The paper consider a family of models in the simulation study. In all designs the marginal treatment probability is $P =0.5$, $K$ denotes the number of features. The mean effect is $\eta(x)$ and the treatment effect is $\kappa(x)$. For $w=0,1$, the potential outcomes are
+
 $$
 Y_{i}(w)=\eta\left(X_{i}\right)+\frac{1}{2} \cdot(2 w-1) \cdot \kappa\left(X_{i}\right)+\epsilon_{i},\quad \epsilon_{i} \sim \mathcal{N}(0, .01),\ X_{i} \sim \mathcal{N}(0,1),\ X_i\ci \epsilon_i.
 $$
+
 The 2nd setup
 
 $$
