@@ -10,7 +10,7 @@ tags:
 ---
 
 
-This blog post is my reading notes of the paper "Recursive partitioning for heterogeneous causal effects" by Susan Athey and Guido Imbens.
+This blog post is my reading notes of the paper ["Recursive partitioning for heterogeneous causal effects"](https://www.pnas.org/content/113/27/7353.abstract) by Susan Athey and Guido Imbens.
 
 1.Introduction
 ======
@@ -142,7 +142,7 @@ $$
 
 is also the example named "simulation1" in the R package "causalTree", which can be found on <https://github.com/susanathey/causalTree>. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
 
-``` r
+``` {r, size="normal"}
 library(causalTree)
 tree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1, treatment = simulation.1$treatment,
                    split.Rule = "CT", cv.option = "CT", split.Honest = T, cv.Honest = T, split.Bucket = F, 
@@ -158,6 +158,12 @@ rpart.plot(opfit)
 In the "causalTree" function, "cp" is the complexity parameter; "minsize" is the minimal number of data in a leaf node, which helps controlling the variance; "propensity" equals to constant 0.5, meaning that all individuals has probability $0.5$ to get treatment. The documentation says that "Unit-specific propensity scores are not supported; however, the user may use inverse propensity scores as case weights if desired". But I wonder how to do this in practice?
 
 The "prune" is a generic and the corresponding method in "rpart" pacakge is "prune.rpart". The usage prune(tree, cp) requires the fitted model object and the complexity parameter. See <https://cran.r-project.org/web/packages/rpart/rpart.pdf>.
+
+References
+------
+<https://github.com/susanathey/causalTree>
+<https://www.cnblogs.com/gogoSandy/p/11711918.html>
+<https://zhuanlan.zhihu.com/p/115223013>
 
 <!-- Aren't headings cool?
 <!------>
