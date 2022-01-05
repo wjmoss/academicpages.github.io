@@ -88,7 +88,7 @@ analytics:
 # Site Author
 author:
   name             : "Jun Wu"
-  avatar           : "Avatar.jpg"
+  avatar           : "avatar0.jpg" #"Avatar.jpg"
   bio              : #"Doctoral Candidates in Chair of Mathematical Statistics, Technical University of Munich"
   location         :
   employer         :
