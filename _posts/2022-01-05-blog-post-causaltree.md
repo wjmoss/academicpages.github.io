@@ -142,7 +142,7 @@ $$
 
 is also the example named "simulation1" in the R package "causalTree", which can be found on <https://github.com/susanathey/causalTree>. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
 
-```
+``` r
 library(causalTree)
 tree <- causalTree(y~ x1 + x2 + x3 + x4, data = simulation.1, treatment = simulation.1$treatment,
                    split.Rule = "CT", cv.option = "CT", split.Honest = T, cv.Honest = T, split.Bucket = F, 
@@ -153,7 +153,7 @@ opfit <- prune(tree, opcp)
 rpart.plot(opfit)
 ```
 
-![A causal tree](wjmoss.github.io/images/ct.png "The causal tree in \"simulation1\"")
+![A causal tree](/images/ct.png "The causal tree in \"simulation1\"")
 
 In the "causalTree" function, "cp" is the complexity parameter; "minsize" is the minimal number of data in a leaf node, which helps controlling the variance; "propensity" equals to constant 0.5, meaning that all individuals has probability $0.5$ to get treatment. The documentation says that "Unit-specific propensity scores are not supported; however, the user may use inverse propensity scores as case weights if desired". But I wonder how to do this in practice?
 
