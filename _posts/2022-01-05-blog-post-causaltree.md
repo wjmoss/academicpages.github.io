@@ -153,7 +153,7 @@ opfit <- prune(tree, opcp)
 rpart.plot(opfit)
 ```
 
-![A causal tree](../../images/ct.png "The causal tree in \"simulation1\"")
+![A causal tree](wjmoss.github.io/images/ct.png "The causal tree in \"simulation1\"")
 
 In the "causalTree" function, "cp" is the complexity parameter; "minsize" is the minimal number of data in a leaf node, which helps controlling the variance; "propensity" equals to constant 0.5, meaning that all individuals has probability $0.5$ to get treatment. The documentation says that "Unit-specific propensity scores are not supported; however, the user may use inverse propensity scores as case weights if desired". But I wonder how to do this in practice?
 
