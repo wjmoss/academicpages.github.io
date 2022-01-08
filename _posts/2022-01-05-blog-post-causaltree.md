@@ -10,7 +10,7 @@ tags:
 ---
 
 
-This blog post is my reading notes of the paper ["Recursive partitioning for heterogeneous causal effects"](https://www.pnas.org/content/113/27/7353.abstract) by Susan Athey and Guido Imbens.
+This blog post is my reading notes of the paper <a href="https://www.pnas.org/content/113/27/7353.abstract" target="_blank">"Recursive partitioning for heterogeneous causal effects"<a> by Susan Athey and Guido Imbens.
 
 1.Introduction
 ======
@@ -162,9 +162,9 @@ The "prune" is a generic and the corresponding method in "rpart" pacakge is "pru
 
 References
 ------
-<https://github.com/susanathey/causalTree>
-<https://www.cnblogs.com/gogoSandy/p/11711918.html>
-<https://zhuanlan.zhihu.com/p/115223013>
+<a href="https://github.com/susanathey/causalTree" target="_blank">https://github.com/susanathey/causalTree<a>
+<a href="https://www.cnblogs.com/gogoSandy/p/11711918.html" target="_blank">https://www.cnblogs.com/gogoSandy/p/11711918.html<a>
+<a href="https://zhuanlan.zhihu.com/p/115223013" target="_blank">https://zhuanlan.zhihu.com/p/115223013<a>
 
 <!-- Aren't headings cool?
 <!------>
