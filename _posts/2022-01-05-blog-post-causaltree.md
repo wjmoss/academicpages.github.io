@@ -10,7 +10,7 @@ tags:
 ---
 
 
-This blog post is my reading notes of the paper [Recursive partitioning for heterogeneous causal effects]("https://www.pnas.org/content/113/27/7353.abstract"){:target="_blank"}  by Susan Athey and Guido Imbens.
+This blog post is my reading notes of the paper [Recursive partitioning for heterogeneous causal effects](https://www.pnas.org/content/113/27/7353.abstract){:target="_blank"}  by Susan Athey and Guido Imbens.
 
 1.Introduction
 ======
@@ -140,7 +140,7 @@ $$
 K=10 ; \eta(x)=\frac{1}{2} \sum_{k=1}^{2} x_{k}+\sum_{k=3}^{6} x_{k} ; \kappa(x)=\sum_{k=1}^{2} 1\left\{x_{k}>0\right\} \cdot x_{k}
 $$
 
-is also the example named "simulation1" in the R package "causalTree", which can be found on [https://github.com/susanathey/causalTree]("https://github.com/susanathey/causalTree"){:target="_blank"}. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
+is also the example named "simulation1" in the R package "causalTree", which can be found on [https://github.com/susanathey/causalTree](https://github.com/susanathey/causalTree){:target="_blank"}. The package "causalTree" relies on the package "rpart" for recursive partitioning for classification, regression and survival trees.
 
 ``` r
 library(causalTree)
@@ -157,13 +157,13 @@ rpart.plot(opfit)
 
 In the "causalTree" function, "cp" is the complexity parameter; "minsize" is the minimal number of data in a leaf node, which helps controlling the variance; "propensity" equals to constant 0.5, meaning that all individuals has probability $0.5$ to get treatment. The documentation says that "Unit-specific propensity scores are not supported; however, the user may use inverse propensity scores as case weights if desired". But I wonder how to do this in practice?
 
-The "prune" is a generic and the corresponding method in "rpart" pacakge is "prune.rpart". The usage prune(tree, cp) requires the fitted model object and the complexity parameter. See [https://cran.r-project.org/web/packages/rpart/rpart.pdf]("https://cran.r-project.org/web/packages/rpart/rpart.pdf"){:target="_blank"}.
+The "prune" is a generic and the corresponding method in "rpart" pacakge is "prune.rpart". The usage prune(tree, cp) requires the fitted model object and the complexity parameter. See [https://cran.r-project.org/web/packages/rpart/rpart.pdf](https://cran.r-project.org/web/packages/rpart/rpart.pdf){:target="_blank"}.
 
 References
 ------
 
-[https://www.cnblogs.com/gogoSandy/p/11711918.html]("https://www.cnblogs.com/gogoSandy/p/11711918.html"){:target="_blank"}
-[https://zhuanlan.zhihu.com/p/115223013]("https://zhuanlan.zhihu.com/p/115223013"){:target="_blank"}
+[https://www.cnblogs.com/gogoSandy/p/11711918.html](https://www.cnblogs.com/gogoSandy/p/11711918.html){:target="_blank"}
+[https://zhuanlan.zhihu.com/p/115223013](https://zhuanlan.zhihu.com/p/115223013){:target="_blank"}
 
 <!-- Aren't headings cool?
 <!------>
