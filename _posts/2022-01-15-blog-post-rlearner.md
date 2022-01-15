@@ -27,7 +27,7 @@ Y_{i}(1) & \text { if } W_{i}=1.
 \end{cases}
 $$
 
-The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by $\tau^\*(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$. Moreover, we need to define the treatment propensity score $e^{\*}(x)=P(W=1 \mid X=x)$ and the conditional response surfaces $\mu_{(w)}^{\*}(x)=E\{Y(w) \mid X=x\}$ for $w\in\{0,1\}$. 
+The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by $\tau^\ast(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$. Moreover, we need to define the treatment propensity score $e^{\ast}(x)=P(W=1 \mid X=x)$ and the conditional response surfaces $\mu_{(w)}^{\ast}(x)=E\{Y(w) \mid X=x\}$ for $w\in\{0,1\}$. 
 
 Finally, the framework works under the unconfoundedness assumption.
 
@@ -39,28 +39,28 @@ Finally, the framework works under the unconfoundedness assumption.
 Under unconfoundedness assumption, we can check that
 
 $$
-E\left\{\varepsilon_{i}\left(W_{i}\right) \mid X_{i}, W_{i}\right\}=0, \text{ where } \varepsilon_{i}(w):=Y_{i}(w)-\{\mu_{(0)}^{\*}\left(X_{i}\right)+w \tau^{\*}\left(X_{i}\right)\}.
+E\left\{\varepsilon_{i}\left(W_{i}\right) \mid X_{i}, W_{i}\right\}=0, \text{ where } \varepsilon_{i}(w):=Y_{i}(w)-\{\mu_{(0)}^{\ast}\left(X_{i}\right)+w \tau^{\ast}\left(X_{i}\right)\}.
 $$
 
-Robinson's transformation rewrites the equation with the propensity score $e^\*(x)$, the CATE $\tau^\*(x)$, and the conditional mean outcome $m^{\*}(x):=E(Y \mid X=x)=\mu_{(0)}^{\*}\left(X_{i}\right)+e^{\*}\left(X_{i}\right) \tau^{\*}\left(X_{i}\right)$.
+Robinson's transformation rewrites the equation with the propensity score $e^\ast(x)$, the CATE $\tau^\ast(x)$, and the conditional mean outcome $m^{\ast}(x):=E(Y \mid X=x)=\mu_{(0)}^{\ast}\left(X_{i}\right)+e^{\ast}\left(X_{i}\right) \tau^{\ast}\left(X_{i}\right)$.
 
 $$
-Y_{i}-m^{\*}\left(X_{i}\right)=\left\{W_{i}-e^{\*}\left(X_{i}\right)\right\} \tau^{\*}\left(X_{i}\right)+\varepsilon_{i}.
+Y_{i}-m^{\ast}\left(X_{i}\right)=\left\{W_{i}-e^{\ast}\left(X_{i}\right)\right\} \tau^{\ast}\left(X_{i}\right)+\varepsilon_{i}.
 $$
 
 The CATE function can be expressed in the form of a minimizer:
 
 $$
-\tau^{\*}(\cdot)=\operatorname{argmin}_{\tau}\left\{E\left(\left[\left\{Y_{i}-m^{\*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{\*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}\right)\right\}.
+\tau^{\ast}(\cdot)=\operatorname{argmin}_{\tau}\left\{E\left(\left[\left\{Y_{i}-m^{\ast}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{\ast}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}\right)\right\}.
 $$
 
-An oracle who knows both the functions $m^\*(x)$ and $e^\*(x)$ a priori could estimate the heterogeneous treatment effect function by empirical loss minimization,
+An oracle who knows both the functions $m^\ast(x)$ and $e^\ast(x)$ a priori could estimate the heterogeneous treatment effect function by empirical loss minimization,
 
 $$
-\tilde{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{\*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{\*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\{\tau(\cdot)\}\right),\tag{5}
+\tilde{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{\ast}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{\ast}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\{\tau(\cdot)\}\right),\tag{5}
 $$
 
-but usually $m^\*(x)$ and $e^\*(x)$ are unknown and this estimator is not applicable.
+but usually $m^\ast(x)$ and $e^\ast(x)$ are unknown and this estimator is not applicable.
 
 The paper proposes the R-learner (Robinson's transformation type) framework of two-step estimators using cross-fitting:
 
@@ -114,7 +114,7 @@ $$
 
 The accuracy of any estimator $\tau(\cdot)$ is defined by the regret bound
 $$
-R(\tau)=L(\tau)-L\left(\tau^{\*}\right), \quad L(\tau)=\mathbb{E}\left(\left[\left\{Y_{i}-m^{\*}\left(X_{i}\right)\right\}-\tau\left(X_{i}\right)\left\{W_{i}-e^{\*}\left(X_{i}\right)\right\}\right]^{2}\right).
+R(\tau)=L(\tau)-L\left(\tau^{\ast}\right), \quad L(\tau)=\mathbb{E}\left(\left[\left\{Y_{i}-m^{\ast}\left(X_{i}\right)\right\}-\tau\left(X_{i}\right)\left\{W_{i}-e^{\ast}\left(X_{i}\right)\right\}\right]^{2}\right).
 $$
 
 Under the regularity assumptions (2,3) and uncounfoundedness (1), assuming $2\alpha<1-p$, and also conditions on the rate of $\hat{m}(x)$ and $\hat{e}(x)$, it is proved that the empirical version estimator obtained via a penalized kernel regression variant of the R-learner, with a properly chosen
