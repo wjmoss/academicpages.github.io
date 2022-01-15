@@ -110,7 +110,7 @@ and the empirical version estimator obtained by cross-fitting is
 $$
 \hat{\tau}(\cdot)=\operatorname{argmin}_{\tau \in \mathcal{H}}\left(\frac { 1 } { n } \sum_{i=1}^ { n } \left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}
 -\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}\\
-+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right)
++\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right).
 $$
 
 The accuracy of any estimator $\tau(\cdot)$ is defined by the regret bound
