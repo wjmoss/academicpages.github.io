@@ -65,15 +65,20 @@ $$
 but usually $m^*(x)$ and $e^*(x)$ are unknown and this estimator is not applicable.
 
 The paper proposes the R-learner (Robinson's transformation type) framework of two-step estimators using cross-fitting.
-\begin{enumerate}
-\item Divide up the data into $Q$ (typically set to 5 or 10) evenly sized folds. Let $q(\cdot)$ be a mapping from the $i = 1,\dots,n$ sample indices to $Q$ evenly sized data folds, fit $\hat{m}$ and $\hat{e}$ with cross-fitting over the $Q$ folds via methods tuned for optimal predictive accuracy.
-\item Estimate treatment effects via a plug-in version of $(5)$, where $\hat{e}^{(-q(i))}$ etc., denote predictions made without using the data fold the $i$-th training example belongs to,
+```
+1. 
+
+Divide up the data into $Q$ (typically set to 5 or 10) evenly sized folds. Let $q(\cdot)$ be a mapping from the $i = 1,\dots,n$ sample indices to $Q$ evenly sized data folds, fit $\hat{m}$ and $\hat{e}$ with cross-fitting over the $Q$ folds via methods tuned for optimal predictive accuracy.
+
+2. 
+
+Estimate treatment effects via a plug-in version of $(5)$, where $\hat{e}^{(-q(i))}$ etc., denote predictions made without using the data fold the $i$-th training example belongs to,
 $$
 &\hat{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left[\widehat{L}_{n}\{\tau(\cdot)\}+\Lambda_{n}\{\tau(\cdot)\}\right], \\
 &\widehat{L}_{n}\{\tau(\cdot)\}=\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}-\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}.
 $$
 
-\end{enumerate}
+```
 
 
 4.Error rate
