@@ -10,7 +10,7 @@ tags:
 ---
 
 
-This blog post is some reading notes of the paper [Quasi-oracle estimation of heterogeneous treatment effects](https://academic.oup.com/biomet/article-abstract/108/2/299/5911092){:target="_blank"}  by Susan Athey and Guido Imbens.
+This blog post is some reading notes of the paper [Quasi-oracle estimation of heterogeneous treatment effects](https://academic.oup.com/biomet/article-abstract/108/2/299/5911092){:target="_blank"} by Xinkun Nie and Stefan Wager.
 
 1.Introduction
 ======
