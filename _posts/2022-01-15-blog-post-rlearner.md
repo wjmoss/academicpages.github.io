@@ -89,8 +89,8 @@ $$
 T_{\mathcal{K}}(f)(\cdot)=\mathbb{E}\left[\mathcal{K}(\cdot, X) f(X)\right].
 $$
 
-Mercer's theorem implies that $T_{\mathcal{K}}$ has an orthogonal basis $\left(\psi_{j}\right)_{j=1}^{\infty}$ and corresponding eigen values $\left(\sigma_{j}\right)_{j=1}^{\infty}$ such that $\mathcal{K}(x, y)=\sum_{j=1}^{\infty} \sigma_{j} \psi_{j}(x) \psi_{j}(y)$. The function
-$\phi(x)=\left(\sqrt{\sigma_{j}} \psi_{j}(x)\right)_{j=1}^{\infty}$ is a map from $\mathcal{X}$ to 1 dimensional square-integrable space $\ell_2$, and defines a reproducing kernel Hilbert space (RKHS) $\mathcal{H}$: For every $t\in\ell_2$, define the corresponding element in $\mathcal{H}$ by $f_t(x) = \langle\phi(x), t\rangle$ with the induced inner product $\left\langle f_{s}, f_{t}\right\rangle_{\mathcal{H}}=\langle t, s\rangle$.
+Mercer's theorem implies that $T_{\mathcal{K}}$ has an orthogonal basis $$\left(\psi_{j}\right)_{j=1}^{\infty}$$ and corresponding eigen values $$\left(\sigma_{j}\right)_{j=1}^{\infty}$$ such that $$\mathcal{K}(x, y)=\sum_{j=1}^{\infty} \sigma_{j} \psi_{j}(x) \psi_{j}(y)$$. The function
+$$\phi(x)=\left(\sqrt{\sigma_{j}} \psi_{j}(x)\right)_{j=1}^{\infty}$$ is a map from $\mathcal{X}$ to 1 dimensional square-integrable space $\ell_2$, and defines a reproducing kernel Hilbert space (RKHS) $\mathcal{H}$: For every $t\in\ell_2$, define the corresponding element in $\mathcal{H}$ by $$f_t(x) = \langle\phi(x), t\rangle$$ with the induced inner product $$\left\langle f_{s}, f_{t}\right\rangle_{\mathcal{H}}=\langle t, s\rangle$$.
 
 **Assumption 2.**
 Without loss of generality, we assume $\mathcal{K}(x,x)$ for all $x\in\mathcal{X}$. We assume that for $0 < p < 1$, the eigenvalues $\sigma_j$ satisfy $G=\sup _{j \geq 1} j^{1 / p} \sigma_{j}$ for some constant $G < 1$, and that the orthonormal eigenfunctions $\psi_{j}(\cdot)$ with $\left\|\overline{\psi}_{j}\right\|_{L_{2}(\mathcal{P})}=1$ are uniformly bounded, i.e., $\sup _{j}\left\|\psi_{j}\right\|_{\infty} \leq A<\infty$. Finally, we assume that the outcomes $Y_i$ are almost surely bounded, $\left|Y_{i}\right| \leq M$.
