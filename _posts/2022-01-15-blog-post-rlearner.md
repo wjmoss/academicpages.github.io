@@ -83,8 +83,6 @@ $$
 4.Error rate
 ======
 Let $\mathcal{P}$ be a non-negative measure over the compact metric space $\mathcal{X}\subseteq\mathbb{R}^d$. 
-%Consider a reproducing kernel Hilbert space (RKHS) $\mathcal{H}$ with a continuous, positive semi-definite kernel function $\mathcal{K}$ with respect to $\mathcal{P}$. 
-Assume that the CATE function $\tau^*(x)$ belongs to $L_2(\mathcal{P})$ and define an operator $T_{\mathcal{K}}: L_{2}(\mathcal{P}) \rightarrow L_{2}(\mathcal{P})$
 
 $$
 T_{\mathcal{K}}(f)(\cdot)=\mathbb{E}\left[\mathcal{K}(\cdot, X) f(X)\right].
