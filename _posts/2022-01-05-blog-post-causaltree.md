@@ -10,7 +10,7 @@ tags:
 ---
 
 
-This blog post is my reading notes of the paper [Recursive partitioning for heterogeneous causal effects](https://www.pnas.org/content/113/27/7353.abstract){:target="_blank"}  by Susan Athey and Guido Imbens.
+This blog post is my reading notes of the paper [Recursive partitioning for heterogeneous causal effects](https://www.pnas.org/content/113/27/7353.abstract){:target="_blank"}  by Xinkun Nie and Stefan Wager.
 
 1.Introduction
 ======
