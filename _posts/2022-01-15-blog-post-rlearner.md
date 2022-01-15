@@ -27,7 +27,7 @@ Y_{i}(1) & \text { if } W_{i}=1.
 \end{cases}
 $$
 
-The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by $\tau^\ast(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$. Moreover, we need to define the treatment propensity score $e^{\ast}(x)=P(W=1 \mid X=x)$ and the conditional response surfaces $\mu_{(w)}^{\ast}(x)=E\{Y(w) \mid X=x\}$ for $w\in\{0,1\}$. 
+The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by $\tau^\ast(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$. Moreover, we need to define the treatment propensity score $e^{\ast}(x)=P(W=1 \mid X=x)$ and the conditional response surfaces $\mu_{(w)}^{\ast}(x)=\mathbb{E}[Y(w) \mid X=x]$ for $w\in\{0,1\}$. 
 
 Finally, the framework works under the unconfoundedness assumption.
 
