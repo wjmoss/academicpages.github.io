@@ -35,7 +35,7 @@ Moreover, we need to define the treatment propensity score $e^{*}(x)=P(W=1 \mid 
 
 Finally, the framework works under the unconfoundedness assumption.
 
-\textbf{Assumption 1 (Unconfoundedness).} $\left\{Y_{i}(0), Y_{i}(1)\right\} \perp\kern-1.3ex\perp W_{i} \mid X_{i}$.
+\textbf{Assumption 1 (Unconfoundedness).} $\left\{Y_{i}(0), Y_{i}(1)\right\} \newcommand{\ci}{\perp\kern-1.3ex\perp} W_{i} \mid X_{i}$.
 
 
 3.R-learner
