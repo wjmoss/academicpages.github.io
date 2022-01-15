@@ -75,8 +75,8 @@ Divide up the data into $Q$ (typically set to 5 or 10) evenly sized folds. Let $
 Estimate treatment effects via a plug-in version of $(5)$, where $\hat{e}^{(-q(i))}$ etc., denote predictions made without using the data fold the $i$-th training example belongs to,
 
 $$
-&\hat{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left[\widehat{L}_{n}\{\tau(\cdot)\}+\Lambda_{n}\{\tau(\cdot)\}\right], \\
-&\widehat{L}_{n}\{\tau(\cdot)\}=\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}-\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}.
+\hat{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left[\widehat{L}_{n}\{\tau(\cdot)\}+\Lambda_{n}\{\tau(\cdot)\}\right], \\
+\widehat{L}_{n}\{\tau(\cdot)\}=\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}-\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}.
 $$
 
 
@@ -109,7 +109,7 @@ and the empirical version estimator obtained by cross-fitting is
 $$
 \hat{\tau}(\cdot)=\operatorname{argmin}_{\tau \in \mathcal{H}}\left(\frac { 1 } { n } \sum_{i=1}^ { n } \left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}
 -\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}\\
-&+&\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right)
++\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right)
 $$
 
 The accuracy of any estimator $\tau(\cdot)$ is defined by the regret bound
