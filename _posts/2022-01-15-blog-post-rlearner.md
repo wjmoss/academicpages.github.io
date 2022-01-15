@@ -95,13 +95,13 @@ $\phi(x)=\left(\sqrt{\sigma_{j}} \psi_{j}(x)\right)_{j=1}^{\infty}$ is a map fro
 Without loss of generality, we assume $\mathcal{K}(x,x)$ for all $x\in\mathcal{X}$. We assume that for $0 < p < 1$, the eigenvalues $\sigma_j$ satisfy $G=\sup _{j \geq 1} j^{1 / p} \sigma_{j}$ for some constant $G < 1$, and that the orthonormal eigenfunctions $\psi_{j}(\cdot)$ with $\left\|\bar{\psi}_{j}\right\|_{L_{2}(\mathcal{P})}=1$ are uniformly bounded, i.e., $\sup _{j}\left\|\psi_{j}\right\|_{\infty} \leq A<\infty$. Finally, we assume that the outcomes $Y_i$ are almost surely bounded, $\left|Y_{i}\right| \leq M$.
 
 **Assumption 3.** 
-The true CATE function $\tau^{*}(x)=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$ satisfies $\left\|T_{\mathcal{K}}^{\alpha}\left\{\tau^{*}(\cdot)\right\}\right\|_{\mathcal{H}}<\infty$ for some $0<\alpha<1/2$.
+The true CATE function $\tau^{\ast}(x)=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$ satisfies $\left\|T_{\mathcal{K}}^{\alpha}\left\{\tau^{\ast}(\cdot)\right\}\right\|_{\mathcal{H}}<\infty$ for some $0<\alpha<1/2$.
 (The $\alpha$ power of operator $T_{\mathcal{K}}$ is given by $\alpha$ power of eigenfunctions:  $T_{\mathcal{K}}^{\alpha}\{f(\cdot)\})=\mathbb{E}[\sum_{j=1}^{\infty} \sigma_{j}^\alpha \psi_{j}(\cdot) \psi_{j}(X) f(X)]$.)
 
 The oracle penalized regression estimator is
 
 $$
-\tilde{\tau}(\cdot)=\operatorname{argmin}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right),
+\tilde{\tau}(\cdot)=\operatorname{argmin}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{\ast}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{\ast}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right),
 $$
 
 and the empirical version estimator obtained by cross-fitting is
