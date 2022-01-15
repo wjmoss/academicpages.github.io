@@ -1,5 +1,5 @@
 ---
-title: 'Causal Tree'
+title: 'R-learner'
 date: 2022-01-15
 permalink: /posts/2022/01/rlearner/
 tags:
