@@ -28,14 +28,12 @@ Y_{i}(1) & \text { if } W_{i}=1.
 $$
 
 The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional average treatment effect is defined by
-$
-\tau^*(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right].
-$
+$\tau^*(x) := \mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$.
 Moreover, we need to define the treatment propensity score $e^{*}(x)=P(W=1 \mid X=x)$ and the conditional response surfaces $\mu_{(w)}^{*}(x)=E\{Y(w) \mid X=x\}$ for $w\in\{0,1\}$. 
 
 Finally, the framework works under the unconfoundedness assumption.
 
-\textbf{Assumption 1 (Unconfoundedness).} $\left\{Y_{i}(0), Y_{i}(1)\right\} \newcommand{\ci}{\perp\kern-1.3ex\perp} W_{i} \mid X_{i}$.
+**Assumption 1 (Unconfoundedness).** $\left\{Y_{i}(0), Y_{i}(1)\right\} \newcommand{\ci}{\perp\kern-1.3ex\perp} W_{i} \mid X_{i}$.
 
 
 3.R-learner
@@ -60,22 +58,20 @@ $$
 
 An oracle who knows both the functions $m^*(x)$ and $e^*(x)$ a priori could estimate the heterogeneous treatment effect function by empirical loss minimization,
 
-\begin{align}\label{3}
-\tilde{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\{\tau(\cdot)\}\right),
-\end{align}
+$$
+\tilde{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\{\tau(\cdot)\}\right),\tag{5}
+$$
 
 but usually $m^*(x)$ and $e^*(x)$ are unknown and this estimator is not applicable.
 
 The paper proposes the R-learner (Robinson's transformation type) framework of two-step estimators using cross-fitting.
 \begin{enumerate}
 \item Divide up the data into $Q$ (typically set to 5 or 10) evenly sized folds. Let $q(\cdot)$ be a mapping from the $i = 1,\dots,n$ sample indices to $Q$ evenly sized data folds, fit $\hat{m}$ and $\hat{e}$ with cross-fitting over the $Q$ folds via methods tuned for optimal predictive accuracy.
-\item Estimate treatment effects via a plug-in version of \eqref{3}, where $\hat{e}^{(-q(i))}$ etc., denote predictions made without using the data fold the $i$-th training example belongs to,
-\begin{align}
-\begin{aligned}
+\item Estimate treatment effects via a plug-in version of $(5)$, where $\hat{e}^{(-q(i))}$ etc., denote predictions made without using the data fold the $i$-th training example belongs to,
+$$
 &\hat{\tau}(\cdot)=\operatorname{argmin}_{\tau}\left[\widehat{L}_{n}\{\tau(\cdot)\}+\Lambda_{n}\{\tau(\cdot)\}\right], \\
 &\widehat{L}_{n}\{\tau(\cdot)\}=\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}-\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}.
-\end{aligned}    
-\end{align}
+$$
 
 \end{enumerate}
 
@@ -93,33 +89,30 @@ $$
 Mercer's theorem implies that $T_{\mathcal{K}}$ has an orthogonal basis $\left(\psi_{j}\right)_{j=1}^{\infty}$ and corresponding eigen values $\left(\sigma_{j}\right)_{j=1}^{\infty}$ such that $\mathcal{K}(x, y)=\sum_{j=1}^{\infty} \sigma_{j} \psi_{j}(x) \psi_{j}(y)$. The function
 $\phi(x)=\left(\sqrt{\sigma_{j}} \psi_{j}(x)\right)_{j=1}^{\infty}$ is a map from $\mathcal{X}$ to 1 dimensional square-integrable space $\ell_2$, and defines a reproducing kernel Hilbert space (RKHS) $\mathcal{H}$: For every $t\in\ell_2$, define the corresponding element in $\mathcal{H}$ by $f_t(x) = \langle\phi(x), t\rangle$ with the induced inner product $\left\langle f_{s}, f_{t}\right\rangle_{\mathcal{H}}=\langle t, s\rangle$.
 
-\textbf{Assumption 2.}
+**Assumption 2.**
 Without loss of generality, we assume $\mathcal{K}(x,x)$ for all $x\in\mathcal{X}$. We assume that for $0 < p < 1$, the eigenvalues $\sigma_j$ satisfy $G=\sup _{j \geq 1} j^{1 / p} \sigma_{j}$ for some constant $G < 1$, and that the orthonormal eigenfunctions $\psi_{j}(\cdot)$ with $\left\|\bar{\psi}_{j}\right\|_{L_{2}(\mathcal{P})}=1$ are uniformly bounded, i.e., $\sup _{j}\left\|\psi_{j}\right\|_{\infty} \leq A<\infty$. Finally, we assume that the outcomes $Y_i$ are almost surely bounded, $\left|Y_{i}\right| \leq M$.
 
-\textbf{Assumption 3.} The true CATE function $\tau^{*}(x)=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$ satisfies $\left\|T_{\mathcal{K}}^{\alpha}\left\{\tau^{*}(\cdot)\right\}\right\|_{\mathcal{H}}<\infty$ for some $0<\alpha<1/2$.
+**Assumption 3.** 
+The true CATE function $\tau^{*}(x)=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}=x\right]$ satisfies $\left\|T_{\mathcal{K}}^{\alpha}\left\{\tau^{*}(\cdot)\right\}\right\|_{\mathcal{H}}<\infty$ for some $0<\alpha<1/2$.
 (The $\alpha$ power of operator $T_{\mathcal{K}}$ is given by $\alpha$ power of eigenfunctions:  $T_{\mathcal{K}}^{\alpha}\{f(\cdot)\})=\mathbb{E}[\sum_{j=1}^{\infty} \sigma_{j}^\alpha \psi_{j}(\cdot) \psi_{j}(X) f(X)]$.)
 
 The oracle penalized regression estimator is
 
 $$
-\begin{aligned}
 \tilde{\tau}(\cdot)=& \operatorname{argmin}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right),
-\end{aligned}
 $$
 
 and the empirical version estimator obtained by cross-fitting is
 
 $$
-\begin{aligned}
 \hat{\tau}(\cdot)=& \operatorname{argmin}_{\tau \in \mathcal{H}}\left(\frac { 1 } { n } \sum _ { i = 1 } ^ { n } \left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}
 -\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right)
-\end{aligned}
 $$
 
 The accuracy of any estimator $\tau(\cdot)$ is defined by the regret bound
-\begin{align}
-R(\tau)=L(\tau)-L\left(\tau^{*}\right), \quad L(\tau)=\mathbb{E}\left(\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\tau\left(X_{i}\right)\left\{W_{i}-e^{*}\left(X_{i}\right)\right\}\right]^{2}\right)
-\end{align}.
+$$
+R(\tau)=L(\tau)-L\left(\tau^{*}\right), \quad L(\tau)=\mathbb{E}\left(\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\tau\left(X_{i}\right)\left\{W_{i}-e^{*}\left(X_{i}\right)\right\}\right]^{2}\right).
+$$
 
 Under the regularity assumptions (2,3) and uncounfoundedness (1), assuming $2\alpha<1-p$, and also conditions on the rate of $\hat{m}(x)$ and $\hat{e}(x)$, it is proved that the empirical version estimator obtained via a penalized kernel regression variant of the R-learner, with a properly chosen
 penalty of the form $\Lambda_{n}\left(\|\hat{\tau}\|_{\mathcal{H}}\right)$, achieves the same error rate as the oracle version:
