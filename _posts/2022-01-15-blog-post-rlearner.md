@@ -31,7 +31,7 @@ The unit-level causal effect is $\tau_i=Y_i(1)-Y_i(0)$, and the conditional aver
 
 Finally, the framework works under the unconfoundedness assumption.
 
-**Assumption 1 (Unconfoundedness).** $\left\{Y_{i}(0), Y_{i}(1)\right\} \newcommand{\ci}{\perp\kern-1.3ex\perp} W_{i} \mid X_{i}$.
+**Assumption 1 (Unconfoundedness).** $\left\{Y_{i}(0), Y_{i}(1)\right\} {\perp\kern-1.3ex\perp} W_{i} \mid X_{i}$.
 
 
 3.R-learner
