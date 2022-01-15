@@ -101,13 +101,13 @@ The true CATE function $\tau^{*}(x)=\mathbb{E}\left[Y_{i}(1)-Y_{i}(0) \mid X_{i}
 The oracle penalized regression estimator is
 
 $$
-\tilde{\tau}(\cdot)=& \operatorname{argmin}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right),
+\tilde{\tau}(\cdot)=\operatorname{argmin}\left(\frac{1}{n} \sum_{i=1}^{n}\left[\left\{Y_{i}-m^{*}\left(X_{i}\right)\right\}-\left\{W_{i}-e^{*}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right),
 $$
 
 and the empirical version estimator obtained by cross-fitting is
 
 $$
-\hat{\tau}(\cdot)=& \operatorname{argmin}_{\tau \in \mathcal{H}}\left(\frac { 1 } { n } \sum _ { i = 1 } ^ { n } \left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}
+\hat{\tau}(\cdot)=\operatorname{argmin}_{\tau \in \mathcal{H}}\left(\frac { 1 } { n } \sum _ { i = 1 } ^ { n } \left[\left\{Y_{i}-\hat{m}^{(-q(i))}\left(X_{i}\right)\right\}
 -\left\{W_{i}-\hat{e}^{(-q(i))}\left(X_{i}\right)\right\} \tau\left(X_{i}\right)\right]^{2}+\Lambda_{n}\left(\|\tau\|_{\mathcal{H}}\right):\|\tau\|_{\infty} \leq 2 M\right)
 $$
 
