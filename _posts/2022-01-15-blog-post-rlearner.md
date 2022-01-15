@@ -40,7 +40,7 @@ $$\left\{Y_{i}(0), Y_{i}(1)\right\} {\perp\kern-1.3ex\perp} W_{i} \mid X_{i}.$$
 Under unconfoundedness assumption, we can check that
 
 $$
-E\left\{\varepsilon_{i}\left(W_{i}\right) \mid X_{i}, W_{i}\right\}=0, \text{ where } \varepsilon_{i}(w):=Y_{i}(w)-\{\mu_{(0)}^{\ast}\left(X_{i}\right)+w \tau^{\ast}\left(X_{i}\right)\}.
+\mathbb{E}[\varepsilon_{i}\left(W_{i}\right) \mid X_{i}, W_{i}]=0, \text{ where } \varepsilon_{i}(w):=Y_{i}(w)-\{\mu_{(0)}^{\ast}\left(X_{i}\right)+w \tau^{\ast}\left(X_{i}\right)\}.
 $$
 
 Robinson's transformation rewrites the equation with the propensity score $e^\ast(x)$, the CATE $\tau^\ast(x)$, and the conditional mean outcome $m^{\ast}(x):=E(Y \mid X=x)=\mu_{(0)}^{\ast}\left(X_{i}\right)+e^{\ast}\left(X_{i}\right) \tau^{\ast}\left(X_{i}\right)$.
