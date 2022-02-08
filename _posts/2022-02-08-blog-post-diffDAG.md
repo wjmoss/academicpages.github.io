@@ -116,7 +116,7 @@ Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference 
 Then we have  the soundeness theorem under oracle assumption. 
 
 **Theorem 2**
-Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $$\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$$. Given $$\widehat{\Sigma}^{(1)}$$, $$\widehat{\Sigma}^{(2)}$$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $$\text{skel}(\Delta)=\text{skel}(\Delta^*)$$ with probability as least $1-\delta$ if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
+Under Assumption 2,3. Let $$\Delta_G=([p],\Delta^*)$$ be the true difference DAG with $$\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$$. Given $$\widehat{\Sigma}^{(1)}$$, $$\widehat{\Sigma}^{(2)}$$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $$\text{skel}(\Delta)=\text{skel}(\Delta^*)$$ with probability as least $1-\delta$ if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$. Furthermore, if $D^{(1)}=D^{(2)}$ then $$\Delta=\Delta^*$$.
 
 The proof seems to omit the derivation of error propagation and mentions that $$\vert\widehat{\Delta}^S_{\Omega}-{\Delta}^S_{\Omega}\vert\leq\varepsilon$$ with probability $\geq 1-\delta$ simutaneously over all $S\subset [p]$, which are weird (although the sample size condition in Assumption 2 does not contain $p$...).
 
