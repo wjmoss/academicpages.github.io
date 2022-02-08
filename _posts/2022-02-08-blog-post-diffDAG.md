@@ -37,20 +37,20 @@ The goal is to recover the structural difference between the two DAGs correpondi
 The novelty of their algorithm relies on the equal variance assumption between two SEMs (the mechanism of errors generation remains the same, naturally, and as a special case). In this case the algorithm use this proposition to identify terminal vertice iteratively:
 
 **Proposition 1**
-Fixing a node $i$, if we have $$B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$$ for any node $j$, then $(\Delta_\Omega)_{ii}=0$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, $i$ is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $\Delta = supp(B^{(1)}-B^{(2)})$.
+Fixing a node $i$, if we have $$B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$$ for any node $j$, then $$(\Delta_\Omega)_{ii}=0$$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, $i$ is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $$\Delta = supp(B^{(1)}-B^{(2)})$$.
 
-This proposition gives a sufficient condition for $(\Delta_\Omega)_{ii}=0$, which is again a sufficient condition for terminal vertex. (ps: $\Omega_{ii}=\sigma_{i}^2+\sum_{i \rightarrow k}{B_{ki}}^2\sigma_{k}^2$, in the polynomial equation sense, the second sufficient is also necessary since the equation for superscripts $1,2$ requires all parameters equaling.)
+This proposition gives a sufficient condition for $(\Delta_\Omega)_{ii}=0$, which is again a sufficient condition for terminal vertex. (ps: $$\Omega_{ii}=\sigma_{i}^2+\sum_{i \rightarrow k}{B_{ki}}^2\sigma_{k}^2$$, in the polynomial equation sense, the second sufficient is also necessary since the equation for superscripts $1,2$ requires all parameters equaling.)
 
 A well-known result for SEM marginalization is that, the new SEM obtained by removing a terminal vertex $i$ from the original one $(B,D)$ is given by $(B_{-i,-i},D_{-i,-i})$, which means the submatrix except the$i$'th row and $i$'th column. This is all what we need from marginalization theory, in order to perform the algorithm. However, the paper also gives the full result of arbitrary marginalzation, as a lemma.
 
 **Lemma 1**
-The SEM obtained by removing a subset of vertices $U\subset[p]$, i.e., the SEM over $X_{[p]\backslash U}$, is given by $(\tilde{B}; \tilde{D})$ with $\tilde{D}=\text{diag}(\{\tilde{\sigma}_{j}\}_{j\in[p]\backslash U})$ and
+The SEM obtained by removing a subset of vertices $U\subset[p]$, i.e., the SEM over $X_{[p]\backslash U}$, is given by $$(\tilde{B}; \tilde{D})$$ with $$\tilde{D}=\text{diag}(\{\tilde{\sigma}_{j}\}_{j\in[p]\backslash U})$$ and
 
 $$
 \tilde{\sigma}_{j}^{2}=\sigma_{j}^{4}\left\{\sigma_{j}^{2}-B_{j, U_{j}}\left(\Omega_{U_{j}, U_{j}}^{\mathcal{A}_{j}}\right)^{-1}\left(B_{j, U_{j}}\right)^{\top}\right\}^{-1}, \quad \tilde{B}_{j, k}=\frac{\tilde{\sigma}_{j}^{2}}{\sigma_{j}^{2}}\left\{B_{j, k}-B_{j, U_{j}}\left(\Omega_{U_{j}, U_{j}}^{\mathcal{A}_{j}}\right)^{-1}\left(\Omega_{U_{j}, k}^{\mathcal{A}_{j}}\right)\right\}
 $$
 
-$\forall j\in[p]\backslash U$ and $k\in \mathcal{A}_j$, where $\mathcal{A}_j$ denotes the ancestors of node $j$. Also, $U_{j}=\mathcal{A}_{j} \cap U$, and $\Omega^{\mathcal{A}_{j}}$ is the  precision matrix for $X_{\mathcal{A}_{j}}$ . Finally, for $k \notin \mathcal{A}_{j}, \tilde{B}_{j, k}=0$.
+$$\forall j\in[p]\backslash U$$ and $$k\in \mathcal{A}_j$$, where $$\mathcal{A}_j$$ denotes the ancestors of node $j$. Also, $$U_{j}=\mathcal{A}_{j} \cap U$$, and $$\Omega^{\mathcal{A}_{j}}$$ is the  precision matrix for $$X_{\mathcal{A}_{j}}$$ . Finally, for $$k \notin \mathcal{A}_{j}, \tilde{B}_{j, k}=0$$.
 
 
 3.2 Algorithm
@@ -63,10 +63,9 @@ The high level sketch of the algorithm contains four main steps.
 
 The population version algorithm requires this assumption
 **Assumption 1**.
-Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$ and let $V=[p]\backslash U$,.Then the two SEMs satisfy the following
-assumptions:
+Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $$U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$$ and let $$V=[p]\backslash U$$,.Then the two SEMs satisfy the following assumptions:
 (i) For $i \in U$, the edges and noise variances are invariant.
-(ii) For each $(i, j)\in \Delta$, and $\forall S \subset [p], i,j\in S$, we have that $\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right) \neq \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right)$, where $S^{\prime}=S \backslash\{i, j\}$.
+(ii) For each $(i, j)\in \Delta$, and $\forall S \subset [p], i,j\in S$, we have that $$\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S'}\right) \neq \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S'}\right)$$, where $$S'=S \backslash\{i, j\}$$.
 
 The condition (i) says that, if all undirected edges incident on a vertex in the moral graph remain the same, then the directed edges incident
 on the node remains invariant. The condition (ii) is teh faithfulness assumption in difference DAG, if any edge $(i,j)$ changes, it will at least make difference on the precision matrix (or partial correlation for some submodel).  Indeed, we have $\operatorname{cov}(X_i,X_j\mid X_{S'})=(\Sigma_{ij,ij}-\Sigma^S_{ij,S'}(\Sigma_{S',S'})^{-1}\Sigma_{S',ij})_{ij}=[(\Omega^S)^{-1}]_{ij}$, and 
