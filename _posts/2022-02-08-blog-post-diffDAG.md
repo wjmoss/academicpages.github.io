@@ -1,7 +1,7 @@
 ---
 title: 'Learning the difference DAG between structural equation models'
-date: 2022-01-15
-permalink: /posts/2022/01/rlearner/
+date: 2022-02-08
+permalink: /posts/2022/02/diffDAG/
 tags:
   - structural equation model
   - directed acyclic graph
@@ -27,7 +27,7 @@ where $B$ is the autoregression matrix (transpose of adjacency matrix, $B$ encod
 
 The goal is to recover the structural difference between the two DAGs correponding to SEMs $(B^{(1)},D^{(1)})$ and $(B^{(2)},D^{(2)})$: $\text{supp}(\Delta_B):=\text{supp}(B^{(1)}-B^{(2)})$, given the data samples $X^{(1)}\in\mathbb{R}^{n_1\times p}$, $X^{(2)}\in\mathbb{R}^{n_2\times p}$. For that we need 2 important assumptions:
 
-1. The individual DAG might be dense, but the diffenrence is sparse ($<<p$ non-zero entries in each row / column of $\Delta_B$).
+1. The individual DAG might be dense, but the diffenrence is sparse ($\ll p$ non-zero entries in each row / column of $\Delta_B$).
 2. The (unknown) topological ordering of the two SEMs remains consistent.
 
 3.Results
@@ -37,7 +37,7 @@ The goal is to recover the structural difference between the two DAGs correpondi
 The novelty of their algorithm relies on the equal variance assumption between two SEMs (the mechanism of errors generation remains the same, naturally, and as a special case). In this case the algorithm use this proposition to identify terminal vertice iteratively:
 
 **Proposition 1**
-Fixing a node $i$, if we have $B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$ for any node $j$, then $(\Delta_\Omega)_{ii}=0$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, i is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $\Delta = supp(B^{(1)}-B^{(2)})$.
+Fixing a node $i$, if we have $B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$ for any node $j$, then $(\Delta_\Omega)_{ii}=0$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, $i$ is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $\Delta = supp(B^{(1)}-B^{(2)})$.
 
 This proposition gives a sufficient condition for $(\Delta_\Omega)_{ii}=0$, which is again a sufficient condition for terminal vertex. (ps: $\Omega_{ii}=\sigma_{i}^2+\sum_{i \rightarrow k}{B_{ki}}^2\sigma_{k}^2$, in the polynomial equation sense, the second sufficient is also necessary since the equation for superscripts $1,2$ requires all parameters equaling.)
 
@@ -83,7 +83,7 @@ In the algorithm, the function ComputeOrder finds terminal vertices iteratively 
 
 3.3 Finite-sample guarantees
 ------
-In application scenarios, the sampling error cannot be avoid and the algorithm needs to be slightly modified. First, the difference of precision matrix can be computed by $\Sigma^{(1)}\Delta_\Omega\Sigma^{(2)}=\Sigma^{(2)}-\Sigma^{(1)}$, which also works in finite sample case. Another paper proposed an estimator for the difference of precision matrix by solving this optimization problem:
+In application scenarios, the sampling error cannot be avoid and the algorithm needs to be slightly modified. First, the difference of precision matrix can be computed by $\Sigma^{(1)}\Delta_\Omega\Sigma^{(2)}=\Sigma^{(2)}-\Sigma^{(1)}$, which also works in finite sample case. Another paper [] proposed an estimator for the difference of precision matrix by solving this optimization problem:
 
 $$
 \widehat{\Delta}_{\Omega}=\underset{\Delta_{\Omega}}{\operatorname{argmin}}\left\|\Delta_{\Omega}\right\|_{1} \text { subject to }\left|\widehat{\Sigma}^{(1)}\left(\Delta_{\Omega}\right) \widehat{\Sigma}^{(1)}-\widehat{\Sigma}^{(2)}+\widehat{\Sigma}^{(1)}\right|_{\max } \leq \lambda_{n}.
@@ -96,6 +96,48 @@ $$
 $$
 
 (ps: $\operatorname{vec}(AXB^T)=(B\otimes A)\operatorname{vec}(X)$)
+
+For finite sample version algorithm analysis, we require the oracle assumption of difference of precision matrix estimation, which is from Lasso literatures.
+
+**Assumption 2**
+Given $X^{(1)}\in\mathbb{R}^{n_1\times p}$, $X^{(2)}\in\mathbb{R}^{n_2\times p}$, there exists an estimator $\widehat{\Delta}_\Omega$, s.t. $P\left\{\left|\widehat{\Delta}_{\Omega}-\Delta_{\Omega}\right|_{\max } \leq \varepsilon\right\} \geq 1-\delta$, if $n_{1} \geq \eta_{1}(\varepsilon, \delta)$ and $n_{2} \geq \eta_{2}(\varepsilon, \delta)$ for some $\varepsilon,\delta>0$ and function $\eta_1,\eta_2$.
+
+And also the finite sample version of Assumption 1.
+
+**Assumption 3**
+Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$ and let $V=[p]\backslash U$,.Then the two SEMs satisfy the following
+assumptions:
+(i) For $i \in U$, the edges and noise variances are invariant.
+(ii) For each $(i, j)\in \Delta$, and $\forall S \subset [p], i,j\in S$, we have that $|\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right) - \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right)|\geq 2\varepsilon$, for $S^{\prime}=S \backslash\{i, j\}$ and for some $\varepsilon>0$.
+
+Then we have  the soundeness theorem under oracle assumption. 
+
+**Theorem 2**
+Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$. Given $\widehat{\Sigma}^{(1)}$, $\widehat{\Sigma}^{(2)}$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $\text{skel}(\Delta)=\text{skel}(\Delta^*)$ with probability as least $1-\delta$ if $n_{1} \geq \eta_{1}(\varepsilon, \delta)$ and $n_{2} \geq \eta_{2}(\varepsilon, \delta)$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
+
+The proof seems to omit the derivation of error propagation and mentions that $|\widehat{\Delta}^S_{\Omega}-{\Delta}^S_{\Omega}|\leq\varepsilon$ with probability $\geq 1-\delta$ simutaneously over all $S\subset [p]$, which are weird (although the sample size condition in Assumption 2 does not contain $p$...).
+
+Finally, combining the Lasso results, here is the core corollary for sample size guarantee condition.
+
+**Theorem 3** (Auxilirary, adapted from [])
+Define $K_{\max }^{\circ} \stackrel{\text { def }}{=} \max _{(i, j) \neq(k, l)}\left|\Sigma_{i, j}^{(1)} \Sigma_{k, l}^{(2)}\right|$ and $K_{\min }^{\mathrm{d}} \stackrel{\text { def }}{=} \min _{i} \Sigma_{i, i}^{(1)} \Sigma_{i, i}^{(2)}$. Let $\lambda_{\min }(\cdot)$ denote the
+minimum eigenvalue of a matrix. If $K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2\left\|\Delta_{\Omega}\right\|_{0}}$, the regularization parameter, $\lambda_n$, and the number of samples, $n$, satisfy the following conditions:
+
+$$
+n \geq \frac{C^{2}}{\left(K_{\mathrm{min}}^{\mathrm{d}} \varepsilon\right)^{2}} \log \frac{2 p}{\delta} \quad \text { and } \quad \lambda_{n} \geq C \sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}
+$$
+
+where $C$ is a constant that depends linearly on $|\Delta_\Omega|_1$, $|\Sigma^{\kappa}|_{\max}$ and $\max _{\kappa, i} \sum_{i, i}^{(\kappa)}$, then with probability at least $1-\delta$ we have that $|\Delta_{\Omega}-\widehat{\Delta}_{\Omega}|_{\max } \leq \varepsilon$.
+
+**Corollary**
+Let $d=\max_{S\in[p]}\|\Delta^{S}_\Omega\|_0$ (max diff in moral subgraphs). If $\min(n_1,n_2)=O\left(\left(\frac{d^{2}}{\varepsilon^{2}}\right) \log \left(\frac{p}{\delta}\right)\right)$, $K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2 d}$, and $\lambda_{n}=\Omega\left(\sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}\right)$, where the constant $K_{\max }^{\circ}$ is defined in Theorem 3, and the true difference DAG satisfies Assumption 3, then $\Delta$ (or $\text{skel}(\Delta)$) is correctly identified with probability as least $1-\delta$.
+
+(just plugging in the bound of $K_{\max }^{\circ}$...)
+
+
+4.Fundamental limits
+======
+TBD
 
 
 
