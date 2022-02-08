@@ -116,7 +116,7 @@ Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference 
 Then we have  the soundeness theorem under oracle assumption. 
 
 **Theorem 2**
-Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$. Given $\widehat{\Sigma}^{(1)}$, $$\widehat{\Sigma}^{(2)}$$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $$\text{skel}(\Delta)=\text{skel}(\Delta^*)$$ with probability as least $1-\delta$ if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
+Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $$\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$$. Given $$\widehat{\Sigma}^{(1)}$$, $$\widehat{\Sigma}^{(2)}$$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $$\text{skel}(\Delta)=\text{skel}(\Delta^*)$$ with probability as least $1-\delta$ if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
 
 The proof seems to omit the derivation of error propagation and mentions that $$\vert\widehat{\Delta}^S_{\Omega}-{\Delta}^S_{\Omega}\vert\leq\varepsilon$$ with probability $\geq 1-\delta$ simutaneously over all $S\subset [p]$, which are weird (although the sample size condition in Assumption 2 does not contain $p$...).
 
@@ -130,12 +130,12 @@ $$
 n \geq \frac{C^{2}}{\left(K_{\mathrm{min}}^{\mathrm{d}} \varepsilon\right)^{2}} \log \frac{2 p}{\delta} \quad \text { and } \quad \lambda_{n} \geq C \sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}
 $$
 
-where $C$ is a constant that depends linearly on $$\vert\Delta_\Omega\vert_1$, $$\vert\Sigma^{\kappa}\vert_{\max}$$ and $\max _{\kappa, i} \sum_{i, i}^{(\kappa)}$$, then with probability at least $1-\delta$ we have that $$\vert\Delta_{\Omega}-\widehat{\Delta}_{\Omega}\vert_{\max } \leq \varepsilon$$.
+where $C$ is a constant that depends linearly on $$\vert\Delta_\Omega\vert_1$$, $$\vert\Sigma^{\kappa}\vert_{\max}$$ and $$\max _{\kappa, i} \sum_{i, i}^{(\kappa)}$$, then with probability at least $1-\delta$ we have that $$\vert\Delta_{\Omega}-\widehat{\Delta}_{\Omega}\vert_{\max } \leq \varepsilon$$.
 
 **Corollary**
-Let $$d=\max_{S\in[p]}\|\Delta^{S}_\Omega\|_0$$ (max diff in moral subgraphs). If $$\min(n_1,n_2)=O\left(\left(\frac{d^{2}}{\varepsilon^{2}}\right) \log \left(\frac{p}{\delta}\right)\right)$$, $$K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2 d}$$, and $$\lambda_{n}=\Omega\left(\sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}\right)$$, where the constant $$K_{\max }^{\circ}$$ is defined in Theorem 3, and the true difference DAG satisfies Assumption 3, then $\Delta$ (or $￥\text{skel}(\Delta)$$) is correctly identified with probability as least $1-\delta$.
+Let $$d=\max_{S\in[p]}\|\Delta^{S}_\Omega\|_0$$ (max diff in moral subgraphs). If $$\min(n_1,n_2)=O\left(\left(\frac{d^{2}}{\varepsilon^{2}}\right) \log \left(\frac{p}{\delta}\right)\right)$$, $$K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2 d}$$, and $$\lambda_{n}=\Omega\left(\sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}\right)$$, where the constant $$K_{\max }^{\circ}$$ is defined in Theorem 3, and the true difference DAG satisfies Assumption 3, then $\Delta$ (or $$\text{skel}(\Delta)$$) is correctly identified with probability as least $1-\delta$.
 
-(just plugging in the bound of $￥K_{\max }^{\circ}￥$...)
+(just plugging in the bound of $$K_{\max }^{\circ}$$...)
 
 
 4.Fundamental limits
