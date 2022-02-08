@@ -37,7 +37,7 @@ The goal is to recover the structural difference between the two DAGs correpondi
 The novelty of their algorithm relies on the equal variance assumption between two SEMs (the mechanism of errors generation remains the same, naturally, and as a special case). In this case the algorithm use this proposition to identify terminal vertice iteratively:
 
 **Proposition 1**
-Fixing a node $i$, if we have $B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$ for any node $j$, then $(\Delta_\Omega)_{ii}=0$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, $i$ is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $\Delta = supp(B^{(1)}-B^{(2)})$.
+Fixing a node $i$, if we have $$B^{(1)}_{ji}=B^{(2)}_{ji}, D^{(1)}_{ii}=D^{(2)}_{ii}, D^{(1)}_{jj}=D^{(2)}_{jj}$$ for any node $j$, then $(\Delta_\Omega)_{ii}=0$ ($\Delta_\Omega$ is the difference of two precision matrices). Furthermore, $i$ is a terminal vertex in the difference DAG $G = ([p], \Delta)$ with $\Delta = supp(B^{(1)}-B^{(2)})$.
 
 This proposition gives a sufficient condition for $(\Delta_\Omega)_{ii}=0$, which is again a sufficient condition for terminal vertex. (ps: $\Omega_{ii}=\sigma_{i}^2+\sum_{i \rightarrow k}{B_{ki}}^2\sigma_{k}^2$, in the polynomial equation sense, the second sufficient is also necessary since the equation for superscripts $1,2$ requires all parameters equaling.)
 
