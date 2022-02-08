@@ -5,7 +5,7 @@ permalink: /posts/2022/02/diffDAG/
 tags:
   - structural equation model
   - directed acyclic graph
-
+  - theory
 ---
 
 The paper "Direct Learning with Guarantees of the Difference
@@ -62,13 +62,16 @@ The high level sketch of the algorithm contains four main steps.
 4. Remove the "extra" edges according to faithfulness
 
 The population version algorithm requires this assumption
+
 **Assumption 1**.
 Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $$U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$$ and let $$V=[p]\backslash U$$,.Then the two SEMs satisfy the following assumptions:
+
 (i) For $i \in U$, the edges and noise variances are invariant.
+
 (ii) For each $(i, j)\in \Delta$, and $\forall S \subset [p], i,j\in S$, we have that $$\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S'}\right) \neq \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S'}\right)$$, where $$S'=S \backslash\{i, j\}$$.
 
 The condition (i) says that, if all undirected edges incident on a vertex in the moral graph remain the same, then the directed edges incident
-on the node remains invariant. The condition (ii) is teh faithfulness assumption in difference DAG, if any edge $(i,j)$ changes, it will at least make difference on the precision matrix (or partial correlation for some submodel).  Indeed, we have $\operatorname{cov}(X_i,X_j\mid X_{S'})=(\Sigma_{ij,ij}-\Sigma^S_{ij,S'}(\Sigma_{S',S'})^{-1}\Sigma_{S',ij})_{ij}=[(\Omega^S)^{-1}]_{ij}$, and 
+on the node remains invariant. The condition (ii) is teh faithfulness assumption in difference DAG, if any edge $(i,j)$ changes, it will at least make difference on the precision matrix (or partial correlation for some submodel).  Indeed, we have $$\operatorname{cov}(X_i,X_j\mid X_{S'})=(\Sigma_{ij,ij}-\Sigma^S_{ij,S'}(\Sigma_{S',S'})^{-1}\Sigma_{S',ij})_{ij}=[(\Omega^S)^{-1}]_{ij}$$, and 
 
 $$
 \operatorname{corr}(X_i,X_j\mid X_{S'})=-\frac{[(\Omega^S)^{-1}]_{ij}}{[(\Omega^S)^{-1}]_{ii}[(\Omega^S)^{-1}]_{jj}}.
@@ -78,7 +81,7 @@ It is really confusing that the paper does not state the error propagation betwe
 
 The picture of detailed algorithm is screenshotted from the original paper.
 
-In the algorithm, the function ComputeOrder finds terminal vertices iteratively from the bottom layer. The OreintEdges function orient the edges (non-zero $\Delta_\Omega$)_{ij} from higher layers to lower layers, and finally add edges with no orientation in the rest part (unknown topological ordering). The Prune function applies Assumption 1.(ii) to check which edges to delete.
+In the algorithm, the function ComputeOrder finds terminal vertices iteratively from the bottom layer. The OreintEdges function orient the edges (non-zero $\Delta_\Omega$_{ij}) from higher layers to lower layers, and finally add edges with no orientation in the rest part (unknown topological ordering). The Prune function applies Assumption 1.(ii) to check which edges to delete.
 
 3.3 Finite-sample guarantees
 ------
@@ -99,39 +102,40 @@ $$
 For finite sample version algorithm analysis, we require the oracle assumption of difference of precision matrix estimation, which is from Lasso literatures.
 
 **Assumption 2**
-Given $X^{(1)}\in\mathbb{R}^{n_1\times p}$, $X^{(2)}\in\mathbb{R}^{n_2\times p}$, there exists an estimator $\widehat{\Delta}_\Omega$, s.t. $P\left\{\left|\widehat{\Delta}_{\Omega}-\Delta_{\Omega}\right|_{\max } \leq \varepsilon\right\} \geq 1-\delta$, if $n_{1} \geq \eta_{1}(\varepsilon, \delta)$ and $n_{2} \geq \eta_{2}(\varepsilon, \delta)$ for some $\varepsilon,\delta>0$ and function $\eta_1,\eta_2$.
+Given $X^{(1)}\in\mathbb{R}^{n_1\times p}$, $X^{(2)}\in\mathbb{R}^{n_2\times p}$, there exists an estimator $$\widehat{\Delta}_\Omega$$, s.t. $$P\left\{\left\vert\widehat{\Delta}_{\Omega}-\Delta_{\Omega}\right\vert_{\max } \leq \varepsilon\right\} \geq 1-\delta$$, if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$ for some $$\varepsilon,\delta>0$$ and function $$\eta_1,\eta_2$$.
 
 And also the finite sample version of Assumption 1.
 
 **Assumption 3**
-Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$ and let $V=[p]\backslash U$,.Then the two SEMs satisfy the following
-assumptions:
+Let $(B^{(1)};D^{(1)})$ and $(B^{(2)};D^{(2)})$ be two SEMs with the difference DAG given by $G = ([p], \Delta)$, where $\Delta = supp(B^{(1)} -B^{(2)})$, and difference of precision matrix given by $\Delta_\Omega$. Let $$U=\left\{i \in[p] \mid\left(\Delta_{\Omega}\right)_{i, *}=0\right\}$$ and let $$V=[p]\backslash U$$,.Then the two SEMs satisfy the following assumptions:
+
 (i) For $i \in U$, the edges and noise variances are invariant.
-(ii) For each $(i, j)\in \Delta$, and $\forall S \subset [p], i,j\in S$, we have that $|\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right) - \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right)|\geq 2\varepsilon$, for $S^{\prime}=S \backslash\{i, j\}$ and for some $\varepsilon>0$.
+
+(ii) For each $(i, j)\in \Delta$, and $$\forall S \subset [p], i,j\in S$$, we have that $$\vert\operatorname{corr}^{(1)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right) - \operatorname{corr}^{(2)}\left(X_{i}, X_{j} \mid X_{S^{\prime}}\right)\vert\geq 2\varepsilon$$, for $S'=S \backslash\{i, j\}$ and for some $\varepsilon>0$.
 
 Then we have  the soundeness theorem under oracle assumption. 
 
 **Theorem 2**
-Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$. Given $\widehat{\Sigma}^{(1)}$, $\widehat{\Sigma}^{(2)}$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $\text{skel}(\Delta)=\text{skel}(\Delta^*)$ with probability as least $1-\delta$ if $n_{1} \geq \eta_{1}(\varepsilon, \delta)$ and $n_{2} \geq \eta_{2}(\varepsilon, \delta)$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
+Under Assumption 2,3. Let $\Delta_G=([p],\Delta^*)$ be the true difference DAG with $\Delta^*=\operatorname{supp}(B^{(1)}-B^{(2)})$. Given $\widehat{\Sigma}^{(1)}$, $$\widehat{\Sigma}^{(2)}$$, $n_1,n_2$, and $\varepsilon>0$ as input, the finite sample learning algorithm returns $\Delta$ such that $$\text{skel}(\Delta)=\text{skel}(\Delta^*)$$ with probability as least $1-\delta$ if $$n_{1} \geq \eta_{1}(\varepsilon, \delta)$$ and $$n_{2} \geq \eta_{2}(\varepsilon, \delta)$$. Furthermore, if $D^{(1)}=D^{(2)}$ then $\Delta=\Delta^*$.
 
-The proof seems to omit the derivation of error propagation and mentions that $|\widehat{\Delta}^S_{\Omega}-{\Delta}^S_{\Omega}|\leq\varepsilon$ with probability $\geq 1-\delta$ simutaneously over all $S\subset [p]$, which are weird (although the sample size condition in Assumption 2 does not contain $p$...).
+The proof seems to omit the derivation of error propagation and mentions that $$\vert\widehat{\Delta}^S_{\Omega}-{\Delta}^S_{\Omega}\vert\leq\varepsilon$$ with probability $\geq 1-\delta$ simutaneously over all $S\subset [p]$, which are weird (although the sample size condition in Assumption 2 does not contain $p$...).
 
 Finally, combining the Lasso results, here is the core corollary for sample size guarantee condition.
 
 **Theorem 3** (Auxilirary, adapted from [])
-Define $K_{\max }^{\circ} \stackrel{\text { def }}{=} \max _{(i, j) \neq(k, l)}\left|\Sigma_{i, j}^{(1)} \Sigma_{k, l}^{(2)}\right|$ and $K_{\min }^{\mathrm{d}} \stackrel{\text { def }}{=} \min _{i} \Sigma_{i, i}^{(1)} \Sigma_{i, i}^{(2)}$. Let $\lambda_{\min }(\cdot)$ denote the
-minimum eigenvalue of a matrix. If $K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2\left\|\Delta_{\Omega}\right\|_{0}}$, the regularization parameter, $\lambda_n$, and the number of samples, $n$, satisfy the following conditions:
+Define $$K_{\max }^{\circ} \stackrel{\text { def }}{=} \max _{(i, j) \neq(k, l)}\left|\Sigma_{i, j}^{(1)} \Sigma_{k, l}^{(2)}\right|$$ and $$K_{\min }^{\mathrm{d}} \stackrel{\text { def }}{=} \min _{i} \Sigma_{i, i}^{(1)} \Sigma_{i, i}^{(2)}$$. Let $$\lambda_{\min }(\cdot)$$ denote the
+minimum eigenvalue of a matrix. If $$K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2\left\|\Delta_{\Omega}\right\|_{0}}$$, the regularization parameter, $\lambda_n$, and the number of samples, $n$, satisfy the following conditions:
 
 $$
 n \geq \frac{C^{2}}{\left(K_{\mathrm{min}}^{\mathrm{d}} \varepsilon\right)^{2}} \log \frac{2 p}{\delta} \quad \text { and } \quad \lambda_{n} \geq C \sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}
 $$
 
-where $C$ is a constant that depends linearly on $|\Delta_\Omega|_1$, $|\Sigma^{\kappa}|_{\max}$ and $\max _{\kappa, i} \sum_{i, i}^{(\kappa)}$, then with probability at least $1-\delta$ we have that $|\Delta_{\Omega}-\widehat{\Delta}_{\Omega}|_{\max } \leq \varepsilon$.
+where $C$ is a constant that depends linearly on $$\vert\Delta_\Omega\vert_1$, $$\vert\Sigma^{\kappa}\vert_{\max}$$ and $\max _{\kappa, i} \sum_{i, i}^{(\kappa)}$$, then with probability at least $1-\delta$ we have that $$\vert\Delta_{\Omega}-\widehat{\Delta}_{\Omega}\vert_{\max } \leq \varepsilon$$.
 
 **Corollary**
-Let $d=\max_{S\in[p]}\|\Delta^{S}_\Omega\|_0$ (max diff in moral subgraphs). If $\min(n_1,n_2)=O\left(\left(\frac{d^{2}}{\varepsilon^{2}}\right) \log \left(\frac{p}{\delta}\right)\right)$, $K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2 d}$, and $\lambda_{n}=\Omega\left(\sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}\right)$, where the constant $K_{\max }^{\circ}$ is defined in Theorem 3, and the true difference DAG satisfies Assumption 3, then $\Delta$ (or $\text{skel}(\Delta)$) is correctly identified with probability as least $1-\delta$.
+Let $$d=\max_{S\in[p]}\|\Delta^{S}_\Omega\|_0$$ (max diff in moral subgraphs). If $$\min(n_1,n_2)=O\left(\left(\frac{d^{2}}{\varepsilon^{2}}\right) \log \left(\frac{p}{\delta}\right)\right)$$, $$K_{\max }^{\circ} \leq \frac{\lambda_{\min }\left(\Sigma^{(1)}\right) \lambda_{\min }\left(\Sigma^{(2)}\right)}{2 d}$$, and $$\lambda_{n}=\Omega\left(\sqrt{\frac{1}{n} \log \frac{2 p}{\delta}}\right)$$, where the constant $$K_{\max }^{\circ}$$ is defined in Theorem 3, and the true difference DAG satisfies Assumption 3, then $\Delta$ (or $￥\text{skel}(\Delta)$$) is correctly identified with probability as least $1-\delta$.
 
-(just plugging in the bound of $K_{\max }^{\circ}$...)
+(just plugging in the bound of $￥K_{\max }^{\circ}￥$...)
 
 
 4.Fundamental limits
