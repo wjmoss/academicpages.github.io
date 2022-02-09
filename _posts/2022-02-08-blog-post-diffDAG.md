@@ -81,6 +81,8 @@ It is really confusing that the paper does not state the error propagation betwe
 
 The picture of detailed algorithm is screenshotted from the original paper.
 
+![diffDAG estimation algorithm](/images/diffDAG-alg.png "diffDAG estimation algorithm")
+
 In the algorithm, the function ComputeOrder finds terminal vertices iteratively from the bottom layer. The OreintEdges function orient the edges (non-zero $\Delta_\Omega$_{ij}) from higher layers to lower layers, and finally add edges with no orientation in the rest part (unknown topological ordering). The Prune function applies Assumption 1.(ii) to check which edges to delete.
 
 3.3 Finite-sample guarantees
