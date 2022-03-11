@@ -91,6 +91,8 @@ $$D_{KL}(q\|p)=\int q(x)\log \frac{q(x)}{p(x)}dx$$
 
 For a fixed $p$, if we want the distance $D_{KL}(p\|q)$ to be small, then $q(x)$ must be small in the area where $p(x)$ is large; and the value of $q(x)$ is not so important in the area where $p(x)$ is small. Conversely, if we want $D_{KL}(q\|p)$ to be small, then $q(x)$ must be small in the area where $p(x)$ is small, and the value of $q(x)$ is not so important in the area where $p(x)$ is large. One can also refer to a picture from "Machine Learning: A Probabilistic Perspective".
 
+![$D_{KL}(p\|q)$ and $D_{KL}(q\|p)$](/images/kl1.png "KL div")
+
 For two multivariate normal distribution $P_1=N(\mu_1,\Sigma_1)$ and $P_2=N(\mu_2,\Sigma_2)$, the KL divergence of $P_1$ from $P_2$ is
 
 $$D_{KL}(P_1\|P_2)=\frac{1}{2}\left[\text{Tr}(\Sigma_2^{-1}\Sigma_1)-\log(\Sigma_2^{-1}\Sigma_1)+(\mu_1-\mu_2)^T\Sigma_2^{-1}(\mu_1-\mu_2)-n\right].$$
@@ -102,7 +104,7 @@ $$D_{KL}(N(0,4)\|N(0,1))>D_{KL}(N(0,4)\|N(0,2))+D_{KL}(N(0,2)\|N(0,1)).$$
 
 4.In practice
 ======
-KL divergence, as the form of log-likelihood, is widely used in Statistics. Undergraduate Statistics textbooks seem rarely(? just my feelings...) mention KL divergence, but they all talk about likelihood inference. The $\log$ term becomes a rational function after computing derivative, and the first order condition equations consist of a polynomial system after reduction of fractions. To study the properties of those polynomials (e.g. the number of solutions in $\mathbb{C}^d$, called maximum likelihood degree), is the task in the area of Algebraic Statistics.
+KL divergence, as the form of log-likelihood, is widely used in Statistics. Undergraduate Statistics textbooks seem rarely (? just my feelings...) mention KL divergence, but they all talk about likelihood inference. The $\log$ term becomes a rational function after computing derivative, and the first order condition equations consist of a polynomial system after reduction of fractions. To study the properties of those polynomials (e.g. the number of solutions in $\mathbb{C}^d$, called maximum likelihood degree), is the task in the area of Algebraic Statistics.
 
 In the area of Machine Learning, I cannot say much about it. KL divergence is criticized because it is unbounded, not symmetric, and the $\log$ term may cause exploding gradient in back propagation. But the evaulation of KL divergence is easy (comparing to Wasserstein distance etc...) and the usage of maximum likelihood estimation is natural. At least I know that the ELBO in variational inference also adopt KL divergence (heh I will not discuss about it here (-: ).
 
