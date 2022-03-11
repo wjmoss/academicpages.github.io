@@ -44,7 +44,7 @@ $$
 \end{array}
 $$
 
-The domain $\mathbb{R}^\ast$ and the support condition ensure that $f(p(x)/q(x))$ is well-defined. The condition $f(0)=1$ implies that $D_f(P\|P)=0$. The convexity of $f$ derives non-negativeness of $D_f$.
+The domain $\mathbb{R}^\ast$ and the support condition ensure that $f(p(x)/q(x))$ is well-defined. The condition $f(0)=1$ implies that $$D_f(P\|P)=0$$. The convexity of $f$ derives non-negativeness of $D_f$.
 
 $$
 \begin{aligned}
@@ -71,13 +71,13 @@ D_{f}(p_{data} \| p_\theta)&=\int p_\theta(x) f\left(\frac{p_{data}(x)}{p_\theta
 \end{aligned}
 $$
 
-The density $p_\theta$ can be evaluated, but we don't know the true distribution and hence $p_{data}$ is unknown. Of course we don't want to get involved in density estimation problem of $p_{data}$. (if we can do that, why not just directlt estimating the density?) It follows that the $p_{data}$ term should ideally be cancelled by a suitable choice of the function $f$. After examining all functions in the table above, the only one works for the average estimator is $f(u)=u\log(u)$, which corresponds to KL divergence.
+The density $p_\theta$ can be evaluated, but we don't know the true distribution and hence $p_{data}$ is unknown. Of course we don't want to get involved in density estimation problem of $p_{data}$ (if we can do that, why not just directlt estimating the density?). It follows that the $p_{data}$ term should ideally be cancelled by a suitable choice of the function $f$. After examining all functions in the table above, the only one works for the average estimator is $f(u)=u\log(u)$, which corresponds to KL divergence.
 
 Then we have the empirical version of KL divergence
 
 $$\widehat{D}_{KL}(p_{data} \| p_\theta)={D}_{KL}(p_{emp} \| p_\theta)= \frac{1}{n}\sum_{i=1}^n \left(\log(p_{data}(X_i))-\log(p_\theta(X_i))\right).$$
 
-Since each $\log(p_{data}(X_i)$ is a constant w.r.t. $\theta$, the problem of minimizing $\widehat{D}_{KL}(p_{data} \| p_\theta)$ is equivalent to maximizing $\frac{1}{n}\sum_{i=1}^n\log(p_\theta(X_i))$ --- the obtained estimator $\hat{\theta}$ is just the maximum likelihood estimator. Among all $\theta$ in the parameter space, the value $\theta=\hat{\theta}$ achieves the maximum (log-)likelihood value w.r.t. density $p_\theta$ given the observed data. In the sense of $f$-divergence, the KL divergence of $p_{emp}$ from $p_\theta$ ($D_{KL}(p_{emp}\|p_\theta)$) is minimized at $\theta=\hat{\theta}$.
+Since each $\log(p_{data}(X_i)$ is a constant w.r.t. $\theta$, the problem of minimizing $$\widehat{D}_{KL}(p_{data} \| p_\theta)$$ is equivalent to maximizing $$\frac{1}{n}\sum_{i=1}^n\log(p_\theta(X_i))$$ --- the obtained estimator $$\hat{\theta}$$ is just the maximum likelihood estimator. Among all $\theta$ in the parameter space, the value $$\theta=\hat{\theta}$$ achieves the maximum (log-)likelihood value w.r.t. density $p_\theta$ given the observed data. In the sense of $f$-divergence, the KL divergence of $p_{emp}$ from $p_\theta$ ($D_{KL}(p_{emp}\|p_\theta)$) is minimized at $$\theta=\hat{\theta}$$.
 
 
 
@@ -108,6 +108,10 @@ KL divergence, as the form of log-likelihood, is widely used in Statistics. Unde
 
 In the area of Machine Learning, I cannot say much about it. KL divergence is criticized because it is unbounded, not symmetric, and the $\log$ term may cause exploding gradient in back propagation. But the evaulation of KL divergence is easy (comparing to Wasserstein distance etc...) and the usage of maximum likelihood estimation is natural. At least I know that the ELBO in variational inference also adopt KL divergence (heh I will not discuss about it here (-: ).
 
+References
+------
+
+[https://kexue.fm/archives/6016](https://kexue.fm/archives/6016){:target="_blank"}
 
 
 <!-- Aren't headings cool?
