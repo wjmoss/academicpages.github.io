@@ -1,6 +1,6 @@
 ---
 title: 'Some notes about KL divergence'
-date: 2022-01-05
+date: 2022-03-11
 permalink: /posts/2022/03/kldiv/
 tags:
   - 
