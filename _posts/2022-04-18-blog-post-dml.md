@@ -144,11 +144,10 @@ The choice of $K$ has no asymptotic impact but may matter in small samples. The 
 
 
 
-<!--References>
+References
 ------
 
-[https://www.cnblogs.com/gogoSandy/p/11711918.html](https://www.cnblogs.com/gogoSandy/p/11711918.html){:target="_blank"}
-[https://zhuanlan.zhihu.com/p/115223013](https://zhuanlan.zhihu.com/p/115223013){:target="_blank"}
+[https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html){:target="_blank"}
 
 <!-- Aren't headings cool?
 <!------>
