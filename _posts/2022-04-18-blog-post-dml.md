@@ -82,7 +82,7 @@ The property of Gateaux derivative vanishing is called Neyman orthogonality and 
 
 Now we know there are some score function with desired property, but how can we construction this kind of score function in general? The authors then introduce a method for likelihood and other M-estimators, with finite dimensional nuisance parameters.
 
-Let $\theta\in\Theta\subset\mathbb{R}^{d_\theta}$ and $\beta\in\mathcal{B}\cubset\mathbb{R}^{d_\beta}$ ($\mathcal{B}$ convec), be the target and the nuisance parameters. Suppose that the true parameter values $\theta_0$ and $\beta_0$ solve the optimization problem
+Let $\theta\in\Theta\subset\mathbb{R}^{d_\theta}$ and $\beta\in\mathcal{B}\subset\mathbb{R}^{d_\beta}$ ($\mathcal{B}$ convex), be the target and the nuisance parameters. Suppose that the true parameter values $\theta_0$ and $\beta_0$ solve the optimization problem
 
 $$
 \max _{\theta \in \Theta, \beta \in \mathcal{B}} \mathrm{E}_{P}[\ell(W ; \theta, \beta)],
