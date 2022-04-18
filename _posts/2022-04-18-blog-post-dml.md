@@ -192,9 +192,26 @@ $$
 $$
 Here, $$\bar{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is 
 $$
-\sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T
+\sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T.
 $$
 
+**Theorem 3.2** (variance estimator for DML)
+Consider the following estimator of the asymptotic variance matrix of $\sqrt{N}(\tilde{\theta}_0-\theta_0)$:
+$$
+\hat{\sigma}^{2}=\widehat{J}_{0}^{-1} \frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi\left(W ; \tilde{\theta}_{0}, \hat{\eta}_{0, k}\right) \psi\left(W ; \tilde{\theta}_{0}, \hat{\eta}_{0, k}\right)^{\prime}\right]\left(\hat{J}_{0}^{-1}\right)^T,
+$$
+where 
+$$
+\widehat{J}_{0}=\frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi^{a}\left(W ; \hat{\eta}_{0, k}\right)\right]
+$$
+and $\tilde{\theta}_0$ is either the DML1 or DML2 estimator. This estimator satisfies
+$$
+\hat{\sigma}^{2}=\sigma^{2}+O_{P}\left(\varrho_{N}\right), \quad \varrho_{N}:=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'\lesssim \delta_{N} .
+$$
+Moreover, $\hat{\sigma}^2$ can replace $\sigma^2$ in the statement of Theorem 3.1 with the reminder rate updated as
+$$
+\rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
+$$
 
 4.Applications
 ======
