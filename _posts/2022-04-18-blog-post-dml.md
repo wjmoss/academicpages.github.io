@@ -17,10 +17,12 @@ Double Machine Learning is a framework to estimate a low-dimensional parameter o
 ======
 First let's focus on the example of a partially linear regression (PLR) model, where $Y$ is the outcome variable, $D$ is the policy/treatment variable of interest, $p$-dimensional vector $X$ are other controls, and $U$ and $V$ are disturbances.
 
-\begin{align}
+$$
+\begin{aligned}
 Y=D \theta_{0}+g_{0}(X)+U, & \mathrm{E}[U \mid X, D]=0 \\
 D=m_{0}(X)+V, & \mathrm{E}[V \mid X]=0
-\end{align}
+\end{aligned}
+$$
 
 A naive approach to estimate $\theta_0$ is to construct $\hat{g}_0$ by $n=N/2$ auxiliary samples (denonted by $I^c$) and then regress $\hat{\theta}_0$ with the other half main samples (denoted by $I$). Recalling the formula of bivariate regression, we have:
 
