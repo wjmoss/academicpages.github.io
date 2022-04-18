@@ -129,7 +129,7 @@ $$
 \tilde{\theta}_{0}=\frac{1}{K} \sum_{k=1}^{K} \check{\theta}_{0, k}.
 $$
 
-
+<br/>
 **DML 2** (combining all equations)
 
 1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
@@ -145,7 +145,7 @@ $$
 $$
 $\psi$ and $$\mathbb{E}_{n,k}$$ are the same as above.
 
-
+<br/>
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
@@ -157,7 +157,7 @@ $$
 
 Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $$\{\delta_N\}_{N\geq 1}$$ and $$\{\Delta_N\}_{N\geq 1}$$ be some sequences of positive constants converging to zero and $$\delta_N\geq N^{-1/2}$$. Also, let $$K\geq 2$$ be a fixed integer, and let $$\{\mathcal{P}_N\}_{N\geq 1}$$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
 
-
+<br/>
 **Assumption 3.1** (Linear scores with approximate Neyman orthogonality)
 
 For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
@@ -175,7 +175,7 @@ $$
 
 e) The identification condition holds, namely, the singular values of the matrix $$J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$$ are between $c_0$ and $c_1$.
 
-
+<br/>
 **Assumption 3.2** (score retularity and quality of nuisance parameter estimators)
 
 For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
@@ -201,15 +201,15 @@ $$
 
 d) The variance of the score $\psi$ is non-degenerate: all eigenvalues of the matrix $$\mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^T\right]$$ are bounded from below by $c_0$.
 
-
+<br/>
 **Remark on Assumption 3.2**
 
 tbd
 
-
+<br/>
 Suppose that Assumption 3.1 and 3.2 hold, these are the main theorems:
 
-
+<br/>
 **Theorem 3.1** (properties of the DML)
 
 The DML1 and DML2 estimators $\tilde{\theta}_0$ concentrate in a $1/\sqrt{N}$ neighborhood of $\theta_0$ and are approximately linear and centred Gaussian,
@@ -230,6 +230,7 @@ $$
 \sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T.
 $$
 
+<br/>
 **Theorem 3.2** (variance estimator for DML)
 
 Consider the following estimator of the asymptotic variance matrix of $\sqrt{N}(\tilde{\theta}_0-\theta_0)$:
@@ -256,7 +257,7 @@ $$
 \rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
 $$
 
-
+<br/>
 Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
 
 4.Applications
