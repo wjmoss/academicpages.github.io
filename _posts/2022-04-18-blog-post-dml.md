@@ -183,6 +183,7 @@ For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
 a) Given a random subset $I$ of $[N]$ of size $n=N/K$, the nuisance parameter estimator $$\hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})$$ belongs to the $$\mathcal{T}_N$$ with probability at least $$1-\Delta_N$$, where $$\mathcal{T}_N$$ contains $\eta_0$ and is constrained by the next conditions.
 
 b) The moment conditions hold:
+
 $$
 \begin{aligned}
 m_{N} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi\left(W ; \theta_{0}, \eta\right)\right\|^{q}\right]\right)^{1 / q} \leqslant c_{1} \\
@@ -191,6 +192,7 @@ m_{N}^{\prime} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\lef
 $$
 
 c) The conditions on the statistical rates $r_N, r'_N$ and $\lambda_N$ hold:
+
 $$
 \begin{aligned}
 r_{N} &:=\sup _{\eta \in \mathcal{T}_{N}}\left\|\mathrm{E}_{P}\left[\psi^{a}(W ; \eta)\right]-\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]\right\| \leqslant \delta_{N}, \\
