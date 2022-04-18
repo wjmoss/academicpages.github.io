@@ -138,6 +138,64 @@ $\psi$ and $\mathbb{E}_{n,k}$ are the same as above.
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (maybe except those with score function with $c\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
+The theory part of this paper is very long and complicated. I just summarize results for models with linear scores, since all models described in the Application part have score function linear in $\theta$: 
+$$
+\psi(w ; \theta, \eta)=\psi^{a}(w ; \eta) \theta+\psi^{b}(w ; \eta), \quad \text { for all } w \in \mathcal{W}, \theta \in \Theta, \eta \in T.
+$$
+
+Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $\{\delta_N\}_{N\geq 1}$ and $\{\Delta_N\}_{N\geq 1}$ be some sequences of positive constants converging to zero and $\delta_N\geq N^{-1/2}$. Also, let $K\geq 2$ be a fixed integer, and let $\{\mathcal{P}_N\}_{N\geq 1}$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
+
+**Assumption 3.1** (Linear scores with approximate Neyman orthogonality)
+For all $N\geq 3$ and $P\in\mathcal{P}_N$, the following conditions hold.
+a) The true parameter value $\theta_0$ satisfies $E_P[\psi(W;\theta_0,\eta_0)]=0$.
+b) The score $\psi$ is linear in the sense of (?).
+c) The map $\eta \mapsto \mathrm{E}_{P}[\psi(W ; \theta, \eta)]$ is twice continuously Gateaux-differentiable on $T$.
+d) The score $\psi$ obeys the Neyman (near-)orthogonality condition at $(\theta_0, \eta_0)$ w.r.t. the nuisance realization set $\mathcal{T}_N\subset T$ for 
+$$
+\lambda_{N}:=\sup _{\eta \in \mathcal{T}_{N}}\left\|\partial_{\eta} \mathrm{E}_{P} \psi\left(W ; \theta_{0}, \eta_{0}\right)\left[\eta-\eta_{0}\right]\right\| \leqslant \delta_{N} N^{-1 / 2}
+$$
+e) The identification condition holds, namely, the singular values of the matrix $J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$ are between $c_0$ and $c_1$.
+
+**Assumption 3.2** (score retularity and quality of nuisance parameter estimators)
+For all $N\geq 3$ and $P\in\mathcal{P}_N$, the following conditions hold.
+a) Given a random subset $I$ of $[N]$ of size $n=N/K$, the nuisance parameter estimator $\hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})$ belongs to the $\mathcal{T}_N$ with probability at least $1-\Delta_N$, where $\mathcal{T}_N$ contains $\eta_0$ and is constrained by the next conditions.
+b) The moment conditions hold:
+$$
+\begin{aligned}
+m_{N} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi\left(W ; \theta_{0}, \eta\right)\right\|^{q}\right]\right)^{1 / q} \leqslant c_{1} \\
+m_{N}^{\prime} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi^{a}(W ; \eta)\right\|^{q}\right]\right)^{1 / q} \leqslant c_{1}
+\end{aligned}
+$$
+c) The conditions on the statistical rates $r_N, r'_N$ and $\lambda_N$ hold:
+$$
+\begin{aligned}
+r_{N} &:=\sup _{\eta \in \mathcal{T}_{N}}\left\|\mathrm{E}_{P}\left[\psi^{a}(W ; \eta)\right]-\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]\right\| \leqslant \delta_{N}, \\
+r_{N}^{\prime} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi\left(W ; \theta_{0}, \eta\right)-\psi\left(W ; \theta_{0}, \eta_{0}\right)\right\|^{2}\right]\right)^{1 / 2} \leqslant \delta_{N}, \\
+\lambda_{N}^{\prime} &:=\sup _{r \in(0,1), \eta \in \mathcal{T}_{N}}\left\|\partial_{r}^{2} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}+r\left(\eta-\eta_{0}\right)\right)\right]\right\| \leqslant \delta_{N} / \sqrt{N} .
+\end{aligned}
+$$
+d) The variance of the score $\psi$ is non-degenerate: all eigenvalues of the matrix $$\mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^T\right]$$ are bounded from below by $c_0$.
+
+**Remark on Assumption 3.2**
+tbd
+
+Suppose that Assumption 3.1 and 3.2 hold, these are the main theorems:
+
+**Theorem 3.1** (properties of the DML)
+The DML1 and DML2 estimators $\tilde{\theta}_0$ concentrate in a $1/\sqrt{N}$ neighborhood of $\theta_0$ and are approximately linear and centred Gaussian,
+$$
+\sqrt{N} \sigma^{-1}\left(\tilde{\theta}_{0}-\theta_{0}\right)=\frac{1}{\sqrt{N}} \sum_{i=1}^{N} \bar{\psi}\left(W_{i}\right)+O_{P}\left(\rho_{N}\right) \leadsto N\left(0, \mathrm{I}_{d}\right)
+$$
+uniformly over $P\in\mathcal{P}_N$, and
+$$
+\rho_{N}:=N^{-1 / 2}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}' \lesssim \delta_{N}
+$$
+Here, $$\bar{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is 
+$$
+\sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T
+$$
+
+
 4.Applications
 ======
 
