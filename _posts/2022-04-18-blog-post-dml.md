@@ -106,29 +106,34 @@ $$
 3.DML estimator and its properties
 ======
 **DML 1** (averaging estimators)
-1) Take a K-fold random partition $(I_{k})_{k=1}^{K}$ of observation indices $[N] =\{1,...,N\}$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $k \in[K]=\{1, ..., K\}$ define $I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$.
+1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
+
 2) For each $k \in [K]$, construct a ML estimator
 $$
 \hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})
 $$
 of $\eta_0$ with all data part except $I_k$.
-3) For each $k \in [K]$, construct the estimator $\check{\theta}_{0,k}$ as the
+
+3) For each $k \in [K]$, construct the estimator $$\check{\theta}_{0,k}$$ as the
 solution of the following equation:
 $$
 \mathbb{E}_{n, k}[\psi(W ; \check{\theta}_{0, k}, \hat{\eta}_{0, k})]=0,
 $$
 where $\psi$  is the Neyman orthogonal score, and $$\mathbb{E}_{n, k}[\psi(W)]=n^{-1} \sum_{i \in I_{k}} \psi\left(W_{i}\right)$$.
+
 4) Aggregate the estimators:
 $$
 \tilde{\theta}_{0}=\frac{1}{K} \sum_{k=1}^{K} \check{\theta}_{0, k}.
 $$
 
 **DML 2** (combining all equations)
-1) Take a K-fold random partition $(I_{k})_{k=1}^{K}$ of observation indices $[N] =\{1,...,N\}$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $k \in[K]=\{1, ..., K\}$ define $I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$.
+1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
+
 2) For each $k \in [K]$, construct a ML estimator
 $$
 \hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})
 $$
+
 3) Consturct the estimator $\tilde{\theta}_0$ as the solution to
 $$
 \frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi\left(W ; \tilde{\theta}_{0}, \widehat{\eta}_{0, k}\right)\right]=0,
@@ -138,27 +143,33 @@ $\psi$ and $\mathbb{E}_{n,k}$ are the same as above.
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
-The theory part of this paper is very long and complicated. I just summarize results for models with linear scores, since all models described in the Application part have score function linear in $\theta$: 
+The theory part of this paper is very long and complicated. I just summarize results for models with linear scores, since all models described in the Application part have score function linear in $\theta$:
+
 $$
 \psi(w ; \theta, \eta)=\psi^{a}(w ; \eta) \theta+\psi^{b}(w ; \eta), \quad \text { for all } w \in \mathcal{W}, \theta \in \Theta, \eta \in T.
 $$
 
-Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $\{\delta_N\}_{N\geq 1}$ and $\{\Delta_N\}_{N\geq 1}$ be some sequences of positive constants converging to zero and $\delta_N\geq N^{-1/2}$. Also, let $K\geq 2$ be a fixed integer, and let $\{\mathcal{P}_N\}_{N\geq 1}$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
+Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $$\{\delta_N\}_{N\geq 1}$$ and $$\{\Delta_N\}_{N\geq 1}$$ be some sequences of positive constants converging to zero and $$\delta_N\geq N^{-1/2}$$. Also, let $$K\geq 2$$ be a fixed integer, and let $$\{\mathcal{P}_N\}_{N\geq 1}$$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
 
 **Assumption 3.1** (Linear scores with approximate Neyman orthogonality)
-For all $N\geq 3$ and $P\in\mathcal{P}_N$, the following conditions hold.
-a) The true parameter value $\theta_0$ satisfies $E_P[\psi(W;\theta_0,\eta_0)]=0$.
+For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
+
+a) The true parameter value $\theta_0$ satisfies $$E_P[\psi(W;\theta_0,\eta_0)]=0$$.
+
 b) The score $\psi$ is linear in the sense of (?).
-c) The map $\eta \mapsto \mathrm{E}_{P}[\psi(W ; \theta, \eta)]$ is twice continuously Gateaux-differentiable on $T$.
+
+c) The map $$\eta \mapsto \mathrm{E}_{P}[\psi(W ; \theta, \eta)]$$ is twice continuously Gateaux-differentiable on $T$.
+
 d) The score $\psi$ obeys the Neyman (near-)orthogonality condition at $(\theta_0, \eta_0)$ w.r.t. the nuisance realization set $\mathcal{T}_N\subset T$ for 
 $$
 \lambda_{N}:=\sup _{\eta \in \mathcal{T}_{N}}\left\|\partial_{\eta} \mathrm{E}_{P} \psi\left(W ; \theta_{0}, \eta_{0}\right)\left[\eta-\eta_{0}\right]\right\| \leqslant \delta_{N} N^{-1 / 2}
 $$
-e) The identification condition holds, namely, the singular values of the matrix $J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$ are between $c_0$ and $c_1$.
+
+e) The identification condition holds, namely, the singular values of the matrix $$J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$$ are between $c_0$ and $c_1$.
 
 **Assumption 3.2** (score retularity and quality of nuisance parameter estimators)
-For all $N\geq 3$ and $P\in\mathcal{P}_N$, the following conditions hold.
-a) Given a random subset $I$ of $[N]$ of size $n=N/K$, the nuisance parameter estimator $\hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})$ belongs to the $\mathcal{T}_N$ with probability at least $1-\Delta_N$, where $\mathcal{T}_N$ contains $\eta_0$ and is constrained by the next conditions.
+For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
+a) Given a random subset $I$ of $[N]$ of size $n=N/K$, the nuisance parameter estimator $$\hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})$$ belongs to the $$\mathcal{T}_N$$ with probability at least $$1-\Delta_N$$, where $$\mathcal{T}_N$$ contains $\eta_0$ and is constrained by the next conditions.
 b) The moment conditions hold:
 $$
 \begin{aligned}
