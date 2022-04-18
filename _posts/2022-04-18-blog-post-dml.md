@@ -190,7 +190,7 @@ uniformly over $P\in\mathcal{P}_N$, and
 $$
 \rho_{N}:=N^{-1 / 2}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}' \lesssim \delta_{N}
 $$
-Here, $$\bar{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is 
+Here, $$\overline{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is 
 $$
 \sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T
 $$
