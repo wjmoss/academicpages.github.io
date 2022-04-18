@@ -9,7 +9,7 @@ tags:
 
 ---
 
-This blog post is some reading notes of the paper [Double/Debiased Machine Learning for Treatment and Structural Parameters](https://arxiv.org/abs/1608.00060v6){:target="_blank"} by V. Chernozhukov et al.
+This blog post is some reading notes of the paper [Double/Debiased Machine Learning for Treatment and Structural Parameters](https://arxiv.org/abs/1608.00060v6){:target="_blank"} by Victor Chernozhukov et al.
 
 Double Machine Learning is a framework to estimate a low-dimensional parameter of interest $\theta_0$, which is typically a causal parameter, in the presence of a high-dimensional nuisance parameter $\eta_0$. The nuisance parameter will be estimated using machine learning (ML), and the framework will give a root-$N$ consistent estimation of the parameter of interestunder regularity conditions.
 
