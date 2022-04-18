@@ -3,7 +3,7 @@ title: 'Double Machine Learning'
 date: 2022-04-18
 permalink: /posts/2022/04/dml/
 tags:
-  - causal inference
+  - double machine learning
   - treatment effect
   - theory
 
