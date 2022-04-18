@@ -127,6 +127,7 @@ $$
 \tilde{\theta}_{0}=\frac{1}{K} \sum_{k=1}^{K} \check{\theta}_{0, k}.
 $$
 
+
 **DML 2** (combining all equations)
 
 1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
@@ -142,6 +143,7 @@ $$
 $$
 $\psi$ and $$\mathbb{E}_{n,k}$$ are the same as above.
 
+
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
@@ -153,13 +155,14 @@ $$
 
 Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $$\{\delta_N\}_{N\geq 1}$$ and $$\{\Delta_N\}_{N\geq 1}$$ be some sequences of positive constants converging to zero and $$\delta_N\geq N^{-1/2}$$. Also, let $$K\geq 2$$ be a fixed integer, and let $$\{\mathcal{P}_N\}_{N\geq 1}$$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
 
+
 **Assumption 3.1** (Linear scores with approximate Neyman orthogonality)
 
 For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
 
 a) The true parameter value $\theta_0$ satisfies $$E_P[\psi(W;\theta_0,\eta_0)]=0$$.
 
-b) The score $\psi$ is linear in the sense of (?).
+b) The score $\psi$ is linear in the sense of (12).
 
 c) The map $$\eta \mapsto \mathrm{E}_{P}[\psi(W ; \theta, \eta)]$$ is twice continuously Gateaux-differentiable on $T$.
 
@@ -169,6 +172,7 @@ $$
 $$
 
 e) The identification condition holds, namely, the singular values of the matrix $$J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$$ are between $c_0$ and $c_1$.
+
 
 **Assumption 3.2** (score retularity and quality of nuisance parameter estimators)
 
@@ -195,11 +199,14 @@ $$
 
 d) The variance of the score $\psi$ is non-degenerate: all eigenvalues of the matrix $$\mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^T\right]$$ are bounded from below by $c_0$.
 
+
 **Remark on Assumption 3.2**
 
 tbd
 
+
 Suppose that Assumption 3.1 and 3.2 hold, these are the main theorems:
+
 
 **Theorem 3.1** (properties of the DML)
 
@@ -246,6 +253,7 @@ Moreover, $\hat{\sigma}^2$ can replace $\sigma^2$ in the statement of Theorem 3.
 $$
 \rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
 $$
+
 
 Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
 
