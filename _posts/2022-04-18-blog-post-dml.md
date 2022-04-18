@@ -1,5 +1,5 @@
 ---
-title: 'R-learner'
+title: 'Double Machine Learning'
 date: 2022-04-18
 permalink: /posts/2022/04/dml/
 tags:
