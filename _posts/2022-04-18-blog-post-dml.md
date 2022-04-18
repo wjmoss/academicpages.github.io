@@ -136,7 +136,7 @@ $$
 $\psi$ and $\mathbb{E}_{n,k}$ are the same as above.
 
 **Remark.**
-The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (maybe except those with score function with $c\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
+The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
 The theory part of this paper is very long and complicated. I just summarize results for models with linear scores, since all models described in the Application part have score function linear in $\theta$: 
 $$
