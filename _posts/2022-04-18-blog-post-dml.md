@@ -106,6 +106,7 @@ $$
 3.DML estimator and its properties
 ======
 **DML 1** (averaging estimators)
+
 1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
 
 2) For each $k \in [K]$, construct a ML estimator
@@ -127,6 +128,7 @@ $$
 $$
 
 **DML 2** (combining all equations)
+
 1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
 
 2) For each $k \in [K]$, construct a ML estimator
@@ -134,11 +136,11 @@ $$
 \hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})
 $$
 
-3) Consturct the estimator $\tilde{\theta}_0$ as the solution to
+3) Consturct the estimator $$\tilde{\theta}_0$$ as the solution to
 $$
 \frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi\left(W ; \tilde{\theta}_{0}, \widehat{\eta}_{0, k}\right)\right]=0,
 $$
-$\psi$ and $\mathbb{E}_{n,k}$ are the same as above.
+$\psi$ and $$\mathbb{E}_{n,k}$$ are the same as above.
 
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
@@ -152,6 +154,7 @@ $$
 Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $$\{\delta_N\}_{N\geq 1}$$ and $$\{\Delta_N\}_{N\geq 1}$$ be some sequences of positive constants converging to zero and $$\delta_N\geq N^{-1/2}$$. Also, let $$K\geq 2$$ be a fixed integer, and let $$\{\mathcal{P}_N\}_{N\geq 1}$$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
 
 **Assumption 3.1** (Linear scores with approximate Neyman orthogonality)
+
 For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
 
 a) The true parameter value $\theta_0$ satisfies $$E_P[\psi(W;\theta_0,\eta_0)]=0$$.
@@ -168,8 +171,11 @@ $$
 e) The identification condition holds, namely, the singular values of the matrix $$J_{0}:=\mathrm{E}_{P}\left[\psi^{a}\left(W ; \eta_{0}\right)\right]$$ are between $c_0$ and $c_1$.
 
 **Assumption 3.2** (score retularity and quality of nuisance parameter estimators)
+
 For all $N\geq 3$ and $$P\in\mathcal{P}_N$$, the following conditions hold.
+
 a) Given a random subset $I$ of $[N]$ of size $n=N/K$, the nuisance parameter estimator $$\hat{\eta}_{0, k}=\hat{\eta}_{0}((W_{i})_{i \in I_{k}^{c}})$$ belongs to the $$\mathcal{T}_N$$ with probability at least $$1-\Delta_N$$, where $$\mathcal{T}_N$$ contains $\eta_0$ and is constrained by the next conditions.
+
 b) The moment conditions hold:
 $$
 \begin{aligned}
@@ -177,6 +183,7 @@ m_{N} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi\l
 m_{N}^{\prime} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\left\|\psi^{a}(W ; \eta)\right\|^{q}\right]\right)^{1 / q} \leqslant c_{1}
 \end{aligned}
 $$
+
 c) The conditions on the statistical rates $r_N, r'_N$ and $\lambda_N$ hold:
 $$
 \begin{aligned}
@@ -185,41 +192,57 @@ r_{N}^{\prime} &:=\sup _{\eta \in \mathcal{T}_{N}}\left(\mathrm{E}_{P}\left[\lef
 \lambda_{N}^{\prime} &:=\sup _{r \in(0,1), \eta \in \mathcal{T}_{N}}\left\|\partial_{r}^{2} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}+r\left(\eta-\eta_{0}\right)\right)\right]\right\| \leqslant \delta_{N} / \sqrt{N} .
 \end{aligned}
 $$
+
 d) The variance of the score $\psi$ is non-degenerate: all eigenvalues of the matrix $$\mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^T\right]$$ are bounded from below by $c_0$.
 
 **Remark on Assumption 3.2**
+
 tbd
 
 Suppose that Assumption 3.1 and 3.2 hold, these are the main theorems:
 
 **Theorem 3.1** (properties of the DML)
+
 The DML1 and DML2 estimators $\tilde{\theta}_0$ concentrate in a $1/\sqrt{N}$ neighborhood of $\theta_0$ and are approximately linear and centred Gaussian,
+
 $$
 \sqrt{N} \sigma^{-1}\left(\tilde{\theta}_{0}-\theta_{0}\right)=\frac{1}{\sqrt{N}} \sum_{i=1}^{N} \bar{\psi}\left(W_{i}\right)+O_{P}\left(\rho_{N}\right) \leadsto N\left(0, \mathrm{I}_{d}\right)
 $$
+
 uniformly over $P\in\mathcal{P}_N$, and
+
 $$
 \rho_{N}:=N^{-1 / 2}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}' \lesssim \delta_{N}
 $$
-Here, $$\bar{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is 
+
+Here, $$\bar{\psi}(\cdot):=-\sigma^{-1} J_{0}^{-1} \psi\left(\cdot, \theta_{0}, \eta_{0}\right)$$ is the [influence function](https://en.wikipedia.org/wiki/Robust_statistics#Influence_function_and_sensitivity_curve), and the approximate variance is
+
 $$
 \sigma^{2}:=J_{0}^{-1} \mathrm{E}_{P}\left[\psi\left(W ; \theta_{0}, \eta_{0}\right) \psi\left(W ; \theta_{0}, \eta_{0}\right)^{\prime}\right]\left(J_{0}^{-1}\right)^T.
 $$
 
 **Theorem 3.2** (variance estimator for DML)
+
 Consider the following estimator of the asymptotic variance matrix of $\sqrt{N}(\tilde{\theta}_0-\theta_0)$:
+
 $$
 \hat{\sigma}^{2}=\widehat{J}_{0}^{-1} \frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi\left(W ; \tilde{\theta}_{0}, \hat{\eta}_{0, k}\right) \psi\left(W ; \tilde{\theta}_{0}, \hat{\eta}_{0, k}\right)^{\prime}\right]\left(\hat{J}_{0}^{-1}\right)^T,
 $$
-where 
+
+where
+
 $$
 \widehat{J}_{0}=\frac{1}{K} \sum_{k=1}^{K} \mathbb{E}_{n, k}\left[\psi^{a}\left(W ; \hat{\eta}_{0, k}\right)\right]
 $$
+
 and $\tilde{\theta}_0$ is either the DML1 or DML2 estimator. This estimator satisfies
+
 $$
 \hat{\sigma}^{2}=\sigma^{2}+O_{P}\left(\varrho_{N}\right), \quad \varrho_{N}:=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'\lesssim \delta_{N} .
 $$
+
 Moreover, $\hat{\sigma}^2$ can replace $\sigma^2$ in the statement of Theorem 3.1 with the reminder rate updated as
+
 $$
 \rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
 $$
