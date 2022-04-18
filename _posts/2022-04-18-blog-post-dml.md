@@ -213,6 +213,8 @@ $$
 \rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
 $$
 
+Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
+
 4.Applications
 ======
 
