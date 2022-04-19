@@ -13,6 +13,7 @@ This blog post is some reading notes of the paper [Double/Debiased Machine Learn
 
 Double Machine Learning is a framework to estimate a low-dimensional parameter of interest $\theta_0$, which is typically a causal parameter, in the presence of a high-dimensional nuisance parameter $\eta_0$. The nuisance parameter will be estimated using machine learning (ML), and the framework will give a root-$N$ consistent estimation of the parameter of interestunder regularity conditions.
 
+<br/>
 1.Motivation, the example of PLR
 ======
 First let's focus on the example of a partially linear regression (PLR) model, where $Y$ is the outcome variable, $D$ is the policy/treatment variable of interest, $p$-dimensional vector $X$ are other controls, and $U$ and $V$ are disturbances.
@@ -66,7 +67,7 @@ $$
 
 It looks like with sample splitting, only half of the samples are used to estimate the parameter of interest, and it can result in a substantial loss of efficiency. However, the role of the main and auxiliary parts can be flipped to obtain another version of the estimator for averaging. Another idea is to minimize the total loss combining two partial regression on $\theta_0$. In section 3 the authors propose the extension to a K-fold version of cross-fitting.
 
-
+<br/>
 2.Neyman orthogonality and moment conditions
 ======
 The first "conventional" estimator $\hat{\theta}_0$ can be viewed as a solution to a equation
@@ -105,6 +106,7 @@ J_{\beta \theta} & J_{\beta \beta}
 \end{array}\right)=\left.\partial_{\left(\theta^{\prime}, \beta^{\prime}\right)} \mathrm{E}_{P}\left[\partial_{\left(\theta^{\prime}, \beta^{\prime}\right)^{\prime}} \ell(W ; \theta, \beta)\right]\right|_{\theta=\theta_{0} ; \beta=\beta_{0}} .
 $$
 
+<br/>
 3.DML estimator and its properties
 ======
 
@@ -270,6 +272,7 @@ $$
 <br/><br/>
 Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
 
+<br/>
 4.Applications
 ======
 tbd
