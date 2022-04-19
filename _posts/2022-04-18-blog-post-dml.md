@@ -64,7 +64,7 @@ $$
 \frac{1}{n} \sum_{i \in I}\left(\widehat{g}_{0}\left(X_{i}\right)-g_{0}\left(X_{i}\right)\right)^{2} \rightarrow_{P} 0.
 $$
 
-It looks like with sample splitting, we only use half of the samples to estimate the parameter of interest, and it can result in a  substantial loss of efficiency. However, we can simply filp the role of the main and auxiliary part to obtain another version of the estimator and average, or minimize the total loss combining two partial regression on $\theta_0$. In section 3 we will discuss the extension to a K-fold version of cross-fitting.
+It looks like with sample splitting, only half of the samples are used to estimate the parameter of interest, and it can result in a substantial loss of efficiency. However, the role of the main and auxiliary parts can be flipped to obtain another version of the estimator for averaging. Another idea is to minimize the total loss combining two partial regression on $\theta_0$. In section 3 the authors propose the extension to a K-fold version of cross-fitting.
 
 
 2.Neyman orthogonality and moment conditions
