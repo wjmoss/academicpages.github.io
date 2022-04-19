@@ -13,7 +13,7 @@ This blog post is some reading notes of the paper [Double/Debiased Machine Learn
 
 Double Machine Learning is a framework to estimate a low-dimensional parameter of interest $\theta_0$, which is typically a causal parameter, in the presence of a high-dimensional nuisance parameter $\eta_0$. The nuisance parameter will be estimated using machine learning (ML), and the framework will give a root-$N$ consistent estimation of the parameter of interestunder regularity conditions.
 
-1.Motivation
+1.Motivation, the example of PLR
 ======
 First let's focus on the example of a partially linear regression (PLR) model, where $Y$ is the outcome variable, $D$ is the policy/treatment variable of interest, $p$-dimensional vector $X$ are other controls, and $U$ and $V$ are disturbances.
 
@@ -55,7 +55,7 @@ $$
 and with the scaled error
 
 $$
-\sqrt{n}\left(\check{\theta}_{0}-\theta_{0}\right)=\underbrace{(E[V^2])^{-1} \frac{1}{\sqrt{n}} \sum_{i \in I} V_{i} U_{i}}_{:=a}+\underbrace{(E[V^2])^{-1} \frac{1}{\sqrt{n}} \sum_{i \in I} (\hat{m}_0(X_i)-m_0(X_i))\left(\hat{g}_{0}\left(X_{i}\right)-g_{0}\left(X_{i}\right)\right)}_{:=b}+\underbrace{\frac{1}{\sqrt{n}} \sum_{i \in I} V_{i} (\hat{g}_{0}(X_i)-g_0(X_i))}_{:=c}.
+\sqrt{n}\left(\check{\theta}_{0}-\theta_{0}\right)=\underbrace{(E[V^2])^{-1} \frac{1}{\sqrt{n}} \sum_{i \in I} V_{i} U_{i}}_{:=a^\ast}+\underbrace{(E[V^2])^{-1} \frac{1}{\sqrt{n}} \sum_{i \in I} (\hat{m}_0(X_i)-m_0(X_i))\left(\hat{g}_{0}\left(X_{i}\right)-g_{0}\left(X_{i}\right)\right)}_{:=b^\ast}+\underbrace{\frac{1}{\sqrt{n}} \sum_{i \in I} V_{i} (\hat{g}_{0}(X_i)-g_0(X_i))}_{:=c^\ast}.
 $$
 
 The leading term $a^{\ast}$ again converges to a normal random variable under milde conditions. The second term $b^{\ast}$ is now upper-bounded by $\sqrt{n}n^{-(\psi_m+\psi_g)}$, which can vanish even though the rates $n^{-\psi_m}$ and $n^{-\psi_g}$ are slow. The sample splitting procedure (auxiliary part and main part of samples) ensures that $c^{\ast}=o_P(1)$ under weak conditions. Too see this, conditioning on the auxiliary sample, utilizing independence, and recalling that $E[V_i\mid X_i]=0$, it is easy to verify that $c^{\ast}$ has mean zero and variance of order
