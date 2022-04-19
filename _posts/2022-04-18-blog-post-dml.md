@@ -19,8 +19,8 @@ First let's focus on the example of a partially linear regression (PLR) model, w
 
 $$
 \begin{aligned}
-Y=D \theta_{0}+g_{0}(X)+U, & \mathrm{E}[U \mid X, D]=0 \\
-D=m_{0}(X)+V, & \mathrm{E}[V \mid X]=0
+Y=D \theta_{0}+g_{0}(X)+U, &\ \mathrm{E}[U \mid X, D]=0 \\
+D=m_{0}(X)+V, &\ \mathrm{E}[V \mid X]=0
 \end{aligned}
 $$
 
@@ -42,7 +42,7 @@ $$
 b=\left(\mathrm{E} D_{i}^{2}\right)^{-1} \frac{1}{\sqrt{n}} \sum_{i \in I} m_{0}\left(X_{i}\right)\left(g_{0}\left(X_{i}\right)-\widehat{g}_{0}\left(X_{i}\right)\right)+o_{P}(1).
 $$
 
-In high-dimensional settings, regularization is necessary. It keep the variance from exploding but also induces substantive biases. Since $m_0(X)$ is not centered, the biases do not cancel out and term $b$ is the sum of $n$ terms that do not have zero mean. Specifically, the convergence rate of the bias of $\hat{g}_0$ is typically strictly slower than root-$N$ (i.e. bias $\sim O(n^{\psi_g})$ with $\psi_g<1/2$), hence the stochastic order of $b$ goes to infinity.
+In high-dimensional settings, regularization is necessary. It keep the variance from exploding but also induces substantive biases. Since $m_0(X)$ is not centered, the biases do not cancel out and term $b$ is the sum of $n$ terms that do not have zero mean. Specifically, the convergence rate of the bias of $\hat{g}_0$ is typically strictly slower than root-$N$ (i.e. bias $\sim O(n^{-\psi_g})$ with $\psi_g<1/2$), hence the stochastic order of $b$ goes to infinity.
 
 To avoid the retularization biases, we can first partial out the effect of $X$ on $D$ and then do the same procedures as above. That is, we obtain both $\hat{V}=D-\hat{m}_0(X)$ and $\hat{g}_0$ with auxiliary samples. Predicting $D$ with $X$ and predicting $g_0$ with $X$, this is the reason why the authors call the framework "double prediction" or "double machine learning".
 
@@ -107,6 +107,10 @@ $$
 
 3.DML estimator and its properties
 ======
+
+3.1 DML estimator, 2 verions
+------
+
 **DML 1** (averaging estimators)
 
 1) Take a K-fold random partition $$(I_{k})_{k=1}^{K}$$ of observation indices $$[N] =\{1,...,N\}$$ such that the size of each fold $I_k$ is $n=N/K$. Also, for each $$k \in[K]=\{1, ..., K\}$$ define $$I_{k}^{c}:=\{1, ..., N\}\backslash I_{k}$$.
@@ -149,12 +153,16 @@ $\psi$ and $$\mathbb{E}_{n,k}$$ are the same as above.
 **Remark.**
 The choice of $K$ has no asymptotic impact but may matter in small samples. The authors claim that moderate values of $K$ such as $4$ or $5$ work better than $K=2$ in empirical examples and simulations. They also recommend DML2 over DML1, because in most models (perhaps except those with score function with $c\cdot\theta$ term, like ATE and ATTE?) the pooled empirical Jacobian for DML2 exhibits more stable behavior than the separate empirical Jacobians for DML1.
 
+
+3.2 Assumptions and properties
+------
 The theory part of this paper is very long and complicated. I just summarize results for models with linear scores, since all models described in the Application part have score function linear in $\theta$:
 
 $$
 \psi(w ; \theta, \eta)=\psi^{a}(w ; \eta) \theta+\psi^{b}(w ; \eta), \quad \text { for all } w \in \mathcal{W}, \theta \in \Theta, \eta \in T.
 $$
 
+<br/><br/>
 Let $c_1\geq c_0>0$, $s>0$, and $q>2$ be finite constants. Let $$\{\delta_N\}_{N\geq 1}$$ and $$\{\Delta_N\}_{N\geq 1}$$ be some sequences of positive constants converging to zero and $$\delta_N\geq N^{-1/2}$$. Also, let $$K\geq 2$$ be a fixed integer, and let $$\{\mathcal{P}_N\}_{N\geq 1}$$ be a sequence of sets of probability distributions $P$ of $W$ on $\mathcal{W}$.
 
 <br/>
@@ -259,12 +267,12 @@ $$
 \rho_{N}=N^{-[(1-2 / q) \wedge 1 / 2]}+r_{N}+r_{N}'+N^{1 / 2} \lambda_{N}+N^{1 / 2} \lambda_{N}'.
 $$
 
-<br/>
+<br/><br/>
 Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
 
 4.Applications
 ======
-
+tbd
 
 
 
