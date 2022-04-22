@@ -283,6 +283,8 @@ References
 ------
 
 [https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html](https://matheusfacure.github.io/python-causality-handbook/22-Debiased-Orthogonal-Machine-Learning.html){:target="_blank"}
+[Double Machine Learning for causal inference](https://towardsdatascience.com/double-machine-learning-for-causal-inference-78e0c6111f9d){:target="_blank"}
+
 
 <!-- Aren't headings cool?
 <!------>
