@@ -216,9 +216,27 @@ d) The variance of the score $\psi$ is non-degenerate: all eigenvalues of the ma
 <br/>
 **Remark on Assumption 3.2**
 
-tbd
+When the map $$(\theta, \eta) \mapsto \psi(W ; \theta, \eta)$$ is smooth, the rates can be bounded
+
+$$
+\begin{aligned}
+r_{N} \lesssim \varepsilon_{N}, \quad r_{N}^{\prime} \lesssim \varepsilon_{N}, \quad \lambda_{N}^{\prime} \lesssim \varepsilon_{N}^{2},
+\end{aligned}
+$$
+
+where $\varepsilon_N$ is the upper bound on the rate of convergence of $\hat{\eta}_0$ to $\eta_0$ with respect to the $L_2$ norm under $P$.
+
+If we assume that the necessary condition (?) holds, Assumption 3.2,
+particularly $$\lambda_{N}^{\prime}=o\left(N^{-1 / 2}\right)$$, imposes the (crude) rate requirement
+
+$$
+\varepsilon_{N}=o\left(N^{-1 / 4}\right),
+$$
+
+which can be achieved by many machine learning methods under structured assumptions on the nuisance parameters.
 
 <br/>
+
 Suppose that Assumption 3.1 and 3.2 hold, these are the main theorems:
 
 <br/>
@@ -273,6 +291,33 @@ $$
 Based on Theorem 3.1 and 3.2, confidence intervals can be constructed. This part is omitted in this note. I also skip the subsection about non-linear scores.
 
 <br/>
+
+The the specfic sample partition has no impact on estimation results asymptotically, the effect of the particular random split on the estimate can be important in finite samples. In practice, different random split generally gives different estimates. To make the results more robust w.r.t. partitions, the authors propose to use mean or median of $S$ DML estimators.
+
+The point estimators are given by 
+
+$$
+\tilde{\theta}_{0}^{\text {mean }}=\frac{1}{S} \sum_{s=1}^{S} \tilde{\theta}_{0}^{s} \quad \text { or } \quad \tilde{\theta}_{0}^{\text {median }}=\operatorname{median}\left\{\tilde{\theta}_{0}^{s}\right\}_{s=1}^{S},
+$$
+
+and the variance estimators are
+
+$$
+\hat{\sigma}^{2, \text { mean }}=\frac{1}{S} \sum_{s=1}^{S}\left(\hat{\sigma}_{s}^{2}+\left(\hat{\theta}_{s}-\tilde{\theta}^{\text {mean }}\right)\left(\widehat{\theta}_{s}-\tilde{\theta}^{\text {mean }}\right)^T\right)
+$$
+
+and
+
+$$
+\hat{\sigma}^{2, \text { median }}=\operatorname{median}\left\{\hat{\sigma}_{s}^{2}+\left(\left(\hat{\theta}_{s}-\tilde{\theta}^{\text {median }}\right)\left(\hat{\theta}_{s}-\tilde{\theta}^{\text {median }}\right)^T\right\}_{s=1}^{S}\right.
+$$
+
+If $S$ is fixed, the statements in Theorem 3.1 and 3.2 still hold providing Assumption 3.1 and 3.2, with $\hat{\theta}_0$ and $\hat{\sigma}$ replaced by the mean or median version.
+
+The authors recommend using medians, as correponding quantities are more robust to outliers.
+
+<br/>
+
 4.Applications
 ======
 tbd
