@@ -98,7 +98,7 @@ $$
 \hat{Y}(t) \mid M_X=\sum_{i=1}^{E+1} w_{i} Y\left(t_{\mathrm{i}}\right)
 $$
 
-The basic algorithm itself is simple once understanding the idea behind it. Maybe just the choice of exponential function as the transformation of distances is not very clear. One can implement the algorithm easily with basic libraries in programming languages like R or Python. Since it finds nearest neighbors for each time index in a sequence of approximate length $L$, the algorithm has time complexity $O(L^2)$.
+The basic algorithm itself is simple once understanding the idea behind it. Maybe just the choice of exponential function as the transformation of distances is not very clear. One can implement the algorithm easily with basic libraries in programming languages like R or Python. Since it finds nearest neighbors for each time index in a sequence of approximate length $L$, if we don't consider optimization tricks, the algorithm has time complexity $O(L^2)$.
 
 If the causation $Y\rightarrow X$ exists, the nearest neighbors of $M_X$ should identify the time indices of corresponding nearest neighbors on $M_Y$. As the library length $L$ increases, the reconstructed discrete version attractor manifold gradually becomes denser and fills in the manifold. Hence the $E+1$ nearest neighbors converge to $$\underline{x}(t)$$ and the estimate $$\hat{Y}(t) \mid M_X$$ converges to $Y(t)$. The estimate precision (or correlation) increases to 1.
 
