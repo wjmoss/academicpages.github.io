@@ -15,7 +15,7 @@ Convergent Cross Mapping (CCM) is a method for establishing causality from long 
 
 Identifying causality in complex systems can be difficult. For variables with causal relation(s), the behavior of their observations in a segment of times may depends on system state: positively coupled at some times , at other times unrelated or even negatively coupled. An example in the 2012 paper exactly illustrates the phenomenon.
 
-![Mirage correlation](/images/mirage_cor.png")
+![Mirage correlation](/images/mirage_cor.PNG")
 
 Indeed, the paper consider nonlinear difference equations of this form:
 
