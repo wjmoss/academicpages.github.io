@@ -32,7 +32,7 @@ One approach to investigat causal linkages among time series variables is Grange
 
 The key assumption of GC is separability, namely that, the causative factor is exogenous and not contained in past time series of the outcome variable. Separability is satisfied in most linear systems and pure stochastic systems. Besides, GC also works well in nonlinear systems with stable points or limit cycles, or with strongly-coupled variables.
 
-However, GC does not perform well in general nonlinear systems, especially for those with weak of moderate coupling. According to [Takens’ Theorem], information about the causal factor will be redundantly present in the outcome variable time series. That is, the causal factor can be removed in the equation system and the outcomevariable can be predicted by its history, as well as with incorporating the causal factor. In this sense, GC will conclude that the causal factor is not the cause of the outcome variable, since there is no gain in predicability when adding the causal factor in the prediction model. Moreover, common external driving variables (confounders) can also make GC fail.
+However, GC does not perform well in general nonlinear systems, especially for those with weak of moderate coupling. Information about the causal factor are redundantly presented in the outcome variable time series (see section 2). That is, the causal factor can be removed in the equation system and the outcome variable can be predicted by its history, as well as with incorporating the causal factor. In this sense, GC will conclude that the causal factor is not the cause of the outcome variable, since there is no gain in predicability when adding the causal factor in the prediction model. Moreover, common external driving variables (confounders) can also make GC fail.
 
 CCM is an alternative approach, not competing with the many effective methods that use GC, but rather aimed specifically for cases not covered by GC (non-separable nonlinear, weak coupling, confounders).
 
@@ -84,7 +84,7 @@ This example provides another argument for why the convergence of cross-mapped e
 ======
 3.1 Basic version
 ------
-Let $\{X\}=\{X(1), ..., X(L)\}$ and $\{Y\}=\{Y(1), ..., Y(L)\}$ be two time series of length $L$. The lagged-coordinate vectors $$\underline{x}(t)=\langle X(t), X(t-\tau), ..., X(t-(E-1)\tau)\rangle$$ for $$t\in [1+(E-1)\tau, L]$$ reconstruct the shadow manifold $M_X$. The cross-mapped estimate $$Y(t)\mid M_X$$ is computed by the following steps:
+Let $$\{X\}=\{X(1), ..., X(L)\}$$ and $$\{Y\}=\{Y(1), ..., Y(L)\}$$ be two time series of length $L$. The lagged-coordinate vectors $$\underline{x}(t)=\langle X(t), X(t-\tau), ..., X(t-(E-1)\tau)\rangle$$ for $$t\in [1+(E-1)\tau, L]$$ reconstruct the shadow manifold $M_X$. The cross-mapped estimate $$Y(t)\mid M_X$$ is computed by the following steps:
 
 1. Locate the contemporaneous lagged-coordinate vector $$\underline{x}(t)$$ in $M_x$ and find its $E+1$ (the minimum number of points needed for a bounding simplex in an $E$-dimensional space) nearest neighbors
 2. Identify the time indices (from closest to farthest) of the $E+1$ nearest neighbors of $$\underline{x}(t)$: $t_1, ..., t_{E+1}$$
@@ -97,6 +97,8 @@ where $$ u_{i}=\exp \left\{-d(\underline{x}(t), \underline{x}\left(t_{\mathrm{i}
 $$
 \hat{Y}(t) \mid M_X=\sum_{i=1}^{E+1} w_{i} Y\left(t_{\mathrm{i}}\right)
 $$
+
+The basic algorithm itself is simple once understanding the idea behind it. Maybe just the choice of exponential function as the transformation of distances is not very clear. One can implement the algorithm easily with basic libraries in programming languages like R or Python. Since it finds nearest neighbors for each time index in a sequence of approximate length $L$, the algorithm has time complexity $O(L^2)$.
 
 If the causation $Y\rightarrow X$ exists, the nearest neighbors of $M_X$ should identify the time indices of corresponding nearest neighbors on $M_Y$. As the library length $L$ increases, the reconstructed discrete version attractor manifold gradually becomes denser and fills in the manifold. Hence the $E+1$ nearest neighbors converge to $$\underline{x}(t)$$ and the estimate $$\hat{Y}(t) \mid M_X$$ converges to $Y(t)$. The estimate precision (or correlation) increases to 1.
 
