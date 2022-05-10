@@ -8,7 +8,6 @@ tags:
 
 ---
 
-# Convergent Cross Mapping
 1.Background
 ======
 Convergent Cross Mapping (CCM) is a method for establishing causality from long time series data ($$\geq 25$$ observations). The method was first proposed in 1990 by [Sugihara et al](https://www.nature.com/articles/344734a0){:target="_blank"} and revisited in [2012](https://cdanfort.w3.uvm.edu/csc-reading-group/sugihara-causality-science-2012.pdf){:target="blank"}.
