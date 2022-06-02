@@ -16,6 +16,7 @@ Double Machine Learning is a framework to estimate a low-dimensional parameter o
 <br/>
 1.Motivation, the example of PLR
 ======
+
 First let's focus on the example of a partially linear regression (PLR) model, where $Y$ is the outcome variable, $D$ is the policy/treatment variable of interest, $p$-dimensional vector $X$ are other controls, and $U$ and $V$ are disturbances.
 
 $$
@@ -70,6 +71,7 @@ It looks like with sample splitting, only half of the samples are used to estima
 <br/>
 2.Neyman orthogonality and moment conditions
 ======
+
 The first "conventional" estimator $\hat{\theta}_0$ can be viewed as a solution to a equation
 
 $$
