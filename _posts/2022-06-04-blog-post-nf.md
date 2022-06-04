@@ -21,7 +21,7 @@ $$p_2(\boldsymbol{x})=p_1(f^{-1}(\boldsymbol{x}))\cdot\left|\det\left(\frac{\par
 
 The input and output space of the mapping should have the same dimension. If $d=1$, it is sufficient that $f$ is strictly monotonic. Ideally both $f$ and $f^{-1}$ are are continuously differentiable. Differentiability is a sufficient condition, and in theory the mapping $f$ does not have to be differentiable everywhere (i.e., piecewise continuous). In practice we usually use only differentiable transformations.
 
-We can also define a series of stacking transformations $f_i$ such that $\boldsymbol{x}=\boldsymbol{z}_K=f_K(f_{K-1}(\cdots f_2(f_1(\boldsymbol{z_0}))))$. The change of variables formula gives
+We can also define a series of stacking transformations $f_i$ such that $$\boldsymbol{x}=\boldsymbol{z}_K=f_K(f_{K-1}(\cdots f_2(f_1(\boldsymbol{z_0}))))$$. The change of variables formula gives
 
 $$p_K(\boldsymbol{x})=p_0(\boldsymbol{z})\prod_{i=1}^K\left|\det\left(\frac{\partial f_i^{-1}(\boldsymbol{z}_i)}{\partial \boldsymbol{z}_i}\right)\right|,$$
 
