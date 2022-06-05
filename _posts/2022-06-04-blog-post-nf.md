@@ -47,7 +47,7 @@ $$\max\limits_{\psi}p_\psi(\mathcal{D})=\max\limits_{\psi}\frac{1}{n}\sum_{\bold
 2.2 Forward Parametrization
 ------
 
-Forward Parametrization can be used for sampling $\boldsymbol{x}$ and density estimation. We assume that $f_\theta(\boldsymbol{z})=\boldsymbol{x}$ is computable and parameter $\theta$ can be learned. The inverse $f^{-1}$ exists but may not be easy to compute.
+Forward Parametrization can be used for sampling $\boldsymbol{x}$ and density evaluation at the sample. We assume that $f_\theta(\boldsymbol{z})=\boldsymbol{x}$ is computable and parameter $\theta$ can be learned. The inverse $f^{-1}$ exists but may not be easy to compute.
 
 For each sample $\boldsymbol{z}^{(j)}\sim p_1(\boldsymbol{z})$, we can compute the sample $$\boldsymbol{x}^{(j)}=f_\theta(\boldsymbol{z}^{(j)})\sim p_2(\boldsymbol{x})$$ and the density $$p_2(\boldsymbol{x}^{(j)})=p_1(\boldsymbol{z}^{(j)})\cdot\left\vert\det\left(\frac{\partial f_\theta(\boldsymbol{z}^{(j)})}{\partial \boldsymbol{z}}\right)\right\vert^{-1}$$.
 
