@@ -1,7 +1,7 @@
 ---
 title: 'Variational Inference'
-date: 2022-06-04
-permalink: /posts/2022/06/nf/
+date: 2022-06-05
+permalink: /posts/2022/06/vi/
 tags: 
   - machine learning
   - EM algorithm
