@@ -93,7 +93,7 @@ $$
 
 The standard technique is gradient ascent. We will not discuss second order methods here, so what we need is only the two gradients $\nabla_\theta L$ and $\nabla_\phi L$. In general the ELBO (as a integral) cannot be computed analytically, and we have to estimate the gradients from samples.
 
-3.1 Computation of $$\nabla_\theta$$
+3.1 Computation of $\nabla_\theta$
 ------
 Under mild regularity conditions (partial derivative controlled by an integral function $g$), the integral operator and the derivative operator are exchangable: 
 
@@ -107,7 +107,7 @@ $$
 \mathbb{E}_{\boldsymbol{z}\sim q_\phi(\boldsymbol{z})}[\nabla_\theta f_\theta(\boldsymbol{z})]\approx \frac{1}{S}\sum^S_{i=1}\nabla_\theta p_\theta(\boldsymbol{x}_i,\boldsymbol{z}_i).
 $$
 
-3.2  Computation of $$\nabla_\phi$$
+3.2  Computation of $\nabla_\phi$
 ------
 We write $h_\phi(\boldsymbol{z})=\log p_\theta(\boldsymbol{x},\boldsymbol{z})-\log q_\phi(\boldsymbol{z})$. First we try the same way as that in 3.1, 
 
