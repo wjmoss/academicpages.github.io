@@ -4,7 +4,7 @@ date: 2022-06-04
 permalink: /posts/2022/06/nf/
 tags: 
   - machine learning
-  - 
+  - normalizing flow
 
 ---
 
