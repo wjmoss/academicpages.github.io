@@ -27,7 +27,7 @@ and the marginal likelihood $$L(\theta,\boldsymbol{x}):=p_{\boldsymbol{\theta}}(
 To find the MLE of the marginal likelihood, a classic method is the EM algorithm, which iteratively update the expectation of marginal likelihood $$Q(\theta\mid\theta^{(t)})=\mathbb{E}_{\boldsymbol{z}\mid \boldsymbol{x},\theta^{(t)}}\log L(\theta,\boldsymbol{x},\boldsymbol{z})$$
 and the MLE $$\theta^{(t+1)}=\operatorname{arg}\max\limits_{\theta}Q(\theta\mid\theta^{(t)})$$.
 
-proof of convergence:
+Proof of convergence:
 
 Define
 
@@ -70,7 +70,7 @@ $$
 L(\theta, q)=\mathbb{E}_{\boldsymbol{z}\sim q(\boldsymbol{z})}\left[\log {p_\theta(\boldsymbol{x},\boldsymbol{z})}-\log{q(\boldsymbol{z})}\right]
 $$
 
-is called the Evidence Lower BOund (ELBO) of $\log p_\theta(\boldsymbol{x})$. The tightness of the bound depends on how close $a(\boldsymbol{z})$ is to the posterior $p_\theta(\boldsymbol{z}\mid\boldsymbol{x})$ in terms of KL divergence.
+is called the Evidence Lower BOund (ELBO) of $\log p_\theta(\boldsymbol{x})$. The tightness of the bound depends on how close $q(\boldsymbol{z})$ is to the posterior $p_\theta(\boldsymbol{z}\mid\boldsymbol{x})$ in terms of KL divergence.
 
 We can write the formula in another way
 
@@ -93,7 +93,7 @@ $$
 
 The standard technique is gradient ascent. We will not discuss second order methods here, so what we need is only the two gradients $\nabla_\theta L$ and $\nabla_\phi L$. In general the ELBO (as a integral) cannot be computed analytically, and we have to estimate the gradients from samples.
 
-3.1 Computation of $\nabla_\theta$
+3.1 Computation of $$\nabla_\theta$$
 ------
 Under mild regularity conditions (partial derivative controlled by an integral function $g$), the integral operator and the derivative operator are exchangable: 
 
@@ -107,7 +107,7 @@ $$
 \mathbb{E}_{\boldsymbol{z}\sim q_\phi(\boldsymbol{z})}[\nabla_\theta f_\theta(\boldsymbol{z})]\approx \frac{1}{S}\sum^S_{i=1}\nabla_\theta p_\theta(\boldsymbol{x}_i,\boldsymbol{z}_i).
 $$
 
-3.2  Computation of $\nabla_\phi$
+3.2  Computation of $$\nabla_\phi$$
 ------
 We write $h_\phi(\boldsymbol{z})=\log p_\theta(\boldsymbol{x},\boldsymbol{z})-\log q_\phi(\boldsymbol{z})$. First we try the same way as that in 3.1, 
 
