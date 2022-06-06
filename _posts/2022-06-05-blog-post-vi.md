@@ -85,7 +85,7 @@ The true posterior $p_\theta(\boldsymbol{z}\mid\boldsymbol{x})$ is often also in
 
 3.Optimizing ELBO
 ======
-We consider a parameterized family $\mathcal{Q}=\{q_\phi(\boldsymbol{z}),\phi\in\mathbb{R}^K\}$. The optimization of ELBO becomes
+We consider a parameterized family $\mathcal{Q}=\lbraceq_\phi(\boldsymbol{z}),\phi\in\mathbb{R}^K\rbrace$. The optimization of ELBO becomes
 
 $$
 \max\limits_{\theta\in\mathbb{R}^M,\phi\in\mathbb{R}^K}\mathbb{E}_{\boldsymbol{z}\sim q_\phi(\boldsymbol{z})}[\log p_\theta(\boldsymbol{x},\boldsymbol{z})-\log q_\phi(\boldsymbol{z})]=:\max\limits_{\theta,\phi}L(\theta,\phi).
