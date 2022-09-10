@@ -1,5 +1,5 @@
 ---
-permalink: /
+permalink: /s
 title: "Jun Wu"
 excerpt: "About me"
 author_profile: true
