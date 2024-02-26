@@ -7,7 +7,7 @@ permalink: /research/2023-11-01-Partial Homoscedasticity
 
 excerpt: ''
 
-date: 2020-08-19
+date: 2023-11-01
 
 venue: 'IEEE Journal on Selected Areas in Information Theory'
 
