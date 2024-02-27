@@ -20,5 +20,5 @@ In 2023 I obtained a doctorate degree in the Mathematical Statistics group, Tech
 <br>![](/images/gradhatpng.png) B.Sc., Zhejiang University (2016) 
 <!-- ;<br> &nbsp; &nbsp; &nbsp; ![](/images/bullet.png) Study Abroad: Université de Lausanne, Switzerland and Università di Bologna, Italy (2005) -->
 
-
+[CV](wjmoss.github.io/files/JunWu-202402.pdf)
 <!--<script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=700&t=n&d=xe65BzaqOpY0zQQHORKWM9dmdWMkpsgf1KVwSlGcqUc'></script>-->
