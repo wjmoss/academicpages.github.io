@@ -8,4 +8,6 @@ date: 2023-08-23
 location: "Heidelberg University"
 ---
 
+[slides](../files/20230823.pdf)
+
 <!--This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!-->
