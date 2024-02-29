@@ -5,7 +5,7 @@ type: "Talk"
 permalink: /talks/2023-08-23-algebraic matroids
 venue: "18. Doktorand:innentreffen der Stochastik 2023"
 date: 2023-08-23
-location: "Heidelberg University"
+location: "Heidelberg University, Germany"
 ---
 
 [slides](../files/20230823.pdf)
